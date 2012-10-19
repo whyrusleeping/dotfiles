@@ -24,6 +24,8 @@ command Wq wq
 let mapleader = ","
 map <Leader>w <C-w>w
 map <Leader>n :nohl<CR>
+map <Leader>q :wq<CR>
+map <Leader>n :nohl<CR>
 
 "" color schemes
 colorscheme ir_black
