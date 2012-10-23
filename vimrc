@@ -7,9 +7,6 @@ set tags+=./
 "" autogenerate c-tags for the given directory
 map <C-F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
-"" nmap <F8> :TlistToggle<CR>
-nmap <F8> :TagbarToggle<CR>
-nmap <F9> :NERDTreeToggle<CR> 
 if has("autocmd")
 	filetype plugin indent on
 endif
@@ -26,6 +23,9 @@ map <Leader>w <C-w>w
 map <Leader>n :nohl<CR>
 map <Leader>q :wq<CR>
 map <Leader>n :nohl<CR>
-
+map <Leader>m :w<CR>:make<CR>
+map <Leader>tt :TagbarToggle<CR>
+map <Leader>tr :NERDTreeToggle<CR>
+map <Leader>tq :qall<CR>
 "" color schemes
 colorscheme ir_black
