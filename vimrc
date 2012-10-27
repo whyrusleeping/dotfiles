@@ -7,7 +7,7 @@ set tags+=./
 map <C-F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
 "" code folding is wonderful, although i may modify this more
-set foldmethod=syntax
+"" set foldmethod=syntax
 
 if has("autocmd")
 	filetype plugin indent on
@@ -29,5 +29,12 @@ map <Leader>tt :TagbarToggle<CR>
 map <Leader>tr :NERDTreeToggle<CR>
 map <Leader>tq :qall<CR>
 
+"" set multicolor mode
+set t_Co=256
+
 "" color schemes
 colorscheme ir_black
+set gfn=Source\ Code\ Pro\ 11
+
+hi Normal guibg=#060610
+
