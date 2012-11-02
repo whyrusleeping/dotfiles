@@ -31,6 +31,7 @@ map <Leader>n :nohl<CR>
 map <Leader>tt :TagbarToggle<CR>
 map <Leader>tr :NERDTreeToggle<CR>
 map <Leader>tq :qall<CR>
+map <Leader>a  :tabn<CR>
 
 "" make shortcuts for common make labels I use
 map <Leader>mm :w<CR>:make<CR>
