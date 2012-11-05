@@ -6,7 +6,7 @@ set tags+=./
 "" autogenerate c-tags for the given directory
 map <C-F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
-"" code folding is wonderful, although i may modify this more
+"" code folding is tolerable
 "" set foldmethod=syntax
 
 "" set line numbers
@@ -39,6 +39,7 @@ map <Leader>mr :w<CR>:make rebuild<CR>
 map <Leader>mc :w<CR>:make clean<CR>
 map <Leader>md :w<CR>:make debug<CR>
 
+
 "" set multicolor mode
 set t_Co=256
 
@@ -46,4 +47,5 @@ set t_Co=256
 colorscheme ir_black
 set gfn=Source\ Code\ Pro\ 11
 
-
+"" Dont show compiled files in source tree
+set wildignore=*.o
