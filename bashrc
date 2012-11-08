@@ -6,4 +6,9 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # User specific aliases and functions
+
+# Git Aliases
 alias gls='git status'
+alias gad='git add'
+alias gcm='git commit -m'
+
