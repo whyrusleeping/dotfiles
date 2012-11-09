@@ -1,18 +1,39 @@
+"""""""""""""""""""""""""
+" Author: Jeromy Johnson
+"
+"""""""""""""""""""""""""
+
+
+"""""""""""""""""""""""""
+"
+" > Search Options
+"
+"""""""""""""""""""""""""
+
+" Be smart about case
+set smartcase
+
+"  Highlight Search Results
+set hlsearch
+
 set tabstop=4
 set shiftwidth=4
 
-set tags+=./
+"""""""""""""""""""""""""
+"
+" > Tags
+"
+"""""""""""""""""""""""""
 
 "" autogenerate c-tags for the given directory
 map <C-F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
-
-"" code folding is tolerable
-"" set foldmethod=syntax
+set tags+=./
 
 "" set line numbers
 set nu
 set cursorline
 
+"" Filetype Plugins
 if has("autocmd")
 	filetype plugin indent on
 endif
@@ -23,14 +44,20 @@ command Q q
 command WQ wq
 command Wq wq
 
-"" shortcuts!
+
+"""""""""""""""""""""""""""""""""
+"
+" > Key Mappings
+"
+"""""""""""""""""""""""""""""""""
+
 let mapleader = ","
 map <Leader>w <C-w>w
 map <Leader>q :wq<CR>
 map <Leader>n :nohl<CR>
 map <Leader>tt :TagbarToggle<CR>
 map <Leader>tr :NERDTreeToggle<CR>
-map <Leader>tq :qall<CR>
+map <Leader>qa :qall<CR>
 map <Leader>a  :tabn<CR>
 
 "" make shortcuts for common make labels I use
@@ -39,13 +66,24 @@ map <Leader>mr :w<CR>:make rebuild<CR>
 map <Leader>mc :w<CR>:make clean<CR>
 map <Leader>md :w<CR>:make debug<CR>
 
+"" cope
+map <Leader>cc :botright cope<CR>
+
+
+"""""""""""""""""""""""""""""""""
+"
+" > Colors And Fonts
+"
+"""""""""""""""""""""""""""""""""
 
 "" set multicolor mode
 set t_Co=256
 
 "" color schemes
+syntax enable
 colorscheme ir_black
+"" set font
 set gfn=Source\ Code\ Pro\ 11
 
 "" Dont show compiled files in source tree
-set wildignore=*.o
+set wildignore=*.o,*.pdf
