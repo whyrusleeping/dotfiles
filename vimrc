@@ -59,6 +59,13 @@ map <Leader>tt :TagbarToggle<CR>
 map <Leader>tr :NERDTreeToggle<CR>
 map <Leader>qa :qall<CR>
 map <Leader>a  :tabn<CR>
+map \ $
+map <Leader>\ ^
+
+
+"" map the spacebar to search
+map <space> /
+map <C-space> ?
 
 "" make shortcuts for common make labels I use
 map <Leader>mm :w<CR>:make<CR>
