@@ -62,6 +62,8 @@ map <Leader>a  :tabn<CR>
 map \ $
 map <Leader>\ ^
 
+"" Autoindent entire file
+map <Leader>kf ggVG=
 
 "" map the spacebar to search
 map <space> /
