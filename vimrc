@@ -62,6 +62,11 @@ map <Leader>a  :tabn<CR>
 map \ $
 map <Leader>\ ^
 
+"" Delete current word (i know there should be a command to do this, but at
+"" the time of writing i have no internet)
+map <Leader>d bvw<left>x
+map <Leader>s bvw<left>xi
+
 "" Autoindent entire file
 map <Leader>kf ggVG=
 
