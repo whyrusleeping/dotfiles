@@ -23,6 +23,8 @@
 'Tlist_Use_SingleClick'	taglist.txt	/*'Tlist_Use_SingleClick'*
 'Tlist_WinHeight'	taglist.txt	/*'Tlist_WinHeight'*
 'Tlist_WinWidth'	taglist.txt	/*'Tlist_WinWidth'*
+:CSExactColors	CSExact.txt	/*:CSExactColors*
+:CSExactResetColors	CSExact.txt	/*:CSExactResetColors*
 :ReadTypes	TagHighlight.txt	/*:ReadTypes*
 :TlistAddFiles	taglist.txt	/*:TlistAddFiles*
 :TlistAddFilesRecursive	taglist.txt	/*:TlistAddFilesRecursive*
@@ -42,6 +44,7 @@
 :TlistUpdate	taglist.txt	/*:TlistUpdate*
 :UpdateTypesFile	TagHighlight.txt	/*:UpdateTypesFile*
 :UpdateTypesFileOnly	TagHighlight.txt	/*:UpdateTypesFileOnly*
+CSExact.txt	CSExact.txt	/*CSExact.txt*
 TagHL-CtagsExeFull	TagHighlight.txt	/*TagHL-CtagsExeFull*
 TagHL-CtagsExecutable	TagHighlight.txt	/*TagHL-CtagsExecutable*
 TagHL-CtagsFileLocation	TagHighlight.txt	/*TagHL-CtagsFileLocation*
@@ -157,6 +160,15 @@ clang_complete-todo	clang_complete.txt	/*clang_complete-todo*
 clang_complete-use_library	clang_complete.txt	/*clang_complete-use_library*
 clang_complete-user_options	clang_complete.txt	/*clang_complete-user_options*
 clang_complete.txt	clang_complete.txt	/*clang_complete.txt*
+csexact-commands	CSExact.txt	/*csexact-commands*
+csexact-config	CSExact.txt	/*csexact-config*
+csexact-csapprox	CSExact.txt	/*csexact-csapprox*
+csexact-install	CSExact.txt	/*csexact-install*
+csexact-intro	CSExact.txt	/*csexact-intro*
+csexact-issues	CSExact.txt	/*csexact-issues*
+csexact-license	CSExact.txt	/*csexact-license*
+csexact-support	CSExact.txt	/*csexact-support*
+csexact-thanks	CSExact.txt	/*csexact-thanks*
 g:SuperTabClosePreviewOnPopupClose	supertab.txt	/*g:SuperTabClosePreviewOnPopupClose*
 g:SuperTabCompletionContexts	supertab.txt	/*g:SuperTabCompletionContexts*
 g:SuperTabContextDefaultCompletionType	supertab.txt	/*g:SuperTabContextDefaultCompletionType*
@@ -189,6 +201,13 @@ g:clang_sort_algo	clang_complete.txt	/*g:clang_sort_algo*
 g:clang_trailing_placeholder	clang_complete.txt	/*g:clang_trailing_placeholder*
 g:clang_use_library	clang_complete.txt	/*g:clang_use_library*
 g:clang_user_options	clang_complete.txt	/*g:clang_user_options*
+g:csexact_bg_default	CSExact.txt	/*g:csexact_bg_default*
+g:csexact_blacklist	CSExact.txt	/*g:csexact_blacklist*
+g:csexact_colors_override	CSExact.txt	/*g:csexact_colors_override*
+g:csexact_cursor_reset	CSExact.txt	/*g:csexact_cursor_reset*
+g:csexact_fg_default	CSExact.txt	/*g:csexact_fg_default*
+g:csexact_rgbtxt	CSExact.txt	/*g:csexact_rgbtxt*
+g:csexact_term_override	CSExact.txt	/*g:csexact_term_override*
 g:tagbar_autoclose	tagbar.txt	/*g:tagbar_autoclose*
 g:tagbar_autofocus	tagbar.txt	/*g:tagbar_autofocus*
 g:tagbar_autoshowtag	tagbar.txt	/*g:tagbar_autoshowtag*

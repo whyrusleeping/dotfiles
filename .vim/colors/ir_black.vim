@@ -1,6 +1,6 @@
 " ir_black color scheme
-" More at: http://blog.infinitered.com
-
+" Original From: http://blog.infinitered.com
+" Tweaked by: Jeromy Johnson
 
 " ********************************************************************************
 " Standard colors used in all ir_black themes:
@@ -123,7 +123,10 @@ hi Statement        guifg=#3366CC     guibg=NONE        gui=NONE      ctermfg=li
 
 hi Special          guifg=#E18964     guibg=NONE        gui=NONE      ctermfg=white       ctermbg=NONE        cterm=NONE
 hi Delimiter        guifg=#00A0A0     guibg=NONE        gui=NONE      ctermfg=cyan        ctermbg=NONE        cterm=NONE
-hi Operator         guifg=#FFDDDD     guibg=NONE        gui=NONE      ctermfg=white       ctermbg=NONE        cterm=NONE
+hi Operator         guifg=#FFAAAA     guibg=NONE        gui=NONE      ctermfg=white       ctermbg=NONE        cterm=NONE
+
+"custom defined 
+hi Braces guifg=red
 
 hi link Character       Constant
 hi link Boolean         Constant

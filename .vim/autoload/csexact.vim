@@ -93,7 +93,6 @@ function! csexact#TermDetails(...)
         let result.term = term
         let result.host_term = term
     endif
-	echo result
     return result
 endfunction
 
