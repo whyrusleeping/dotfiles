@@ -3,6 +3,9 @@
 "
 """""""""""""""""""""""""
 
+""Misc
+set nocompatible
+set backspace=2
 
 """""""""""""""""""""""""
 "
@@ -102,6 +105,9 @@ map <Leader>cc :botright cope<CR>
 "" Replace word under cursor (so nice...)
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 
+"" Open remote file
+map <Leader>er :e scp://
+
 """""""""""""""""""""""""""""""""
 "
 " > Colors And Fonts
@@ -113,6 +119,7 @@ set t_Co=256
 
 "" color schemes
 syntax enable
+:syn match Braces display '[{}()\[\]]'
 colorscheme ir_black
 "" set font
 set gfn=Source\ Code\ Pro\ 11
@@ -122,3 +129,5 @@ set wildignore=*.o,*.pdf
 
 "" dont redraw screen while running macros (increases speed)
 set lazyredraw
+
+
