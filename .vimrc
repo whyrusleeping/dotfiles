@@ -5,7 +5,30 @@
 
 ""Misc
 set nocompatible
+filetype off
 set backspace=2
+set mouse=a ""allow mouse usage (gets annoying sometimes..)
+
+""Vundle
+set rtp+=~/.vim/bundle/vundle
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+
+""Bundle 'scrooloose/syntastic'
+Bundle 'tpope/vim-fugitive'
+""Bundle 'Valloric/YouCompleteMe'
+
+""Pathogen
+"" call pathogen#infect()
+
+"" Go
+set rtp+=$GOROOT/misc/vim
+"" au BufRead,BufNewFile *.go set filetype=go 
+
+"" less
+au BufNewFile,BufRead *.less set filetype=less
+
 
 """""""""""""""""""""""""
 "
@@ -70,6 +93,7 @@ command Wq wq
 "
 """""""""""""""""""""""""""""""""
 
+nnoremap ; :
 let mapleader = ","
 map <Leader>w <C-w>w
 map <Leader>q :wq<CR>
@@ -84,7 +108,7 @@ map <Leader>\ ^
 "" Delete current word (i know there should be a command to do this, but at
 "" the time of writing i have no internet)
 map <Leader>d bvw<left>x
-map <Leader>s bvw<left>xi
+"" map <Leader>s bvw<left>xi
 
 "" Autoindent entire file
 map <Leader>kf ggVG=
@@ -99,7 +123,10 @@ map <Leader>mr :w<CR>:make rebuild<CR>
 map <Leader>mc :w<CR>:make clean<CR>
 map <Leader>md :w<CR>:make debug<CR>
 
-"" cope
+""Git shortcuts for vim fugitive
+map <Leader>gs :Gstatus<CR>
+
+"" cope, opens a window that displays errors
 map <Leader>cc :botright cope<CR>
 
 "" Replace word under cursor (so nice...)
@@ -117,10 +144,13 @@ map <Leader>er :e scp://
 "" set multicolor mode
 set t_Co=256
 
+
+
 "" color schemes
 syntax enable
-:syn match Braces display '[{}()\[\]]'
 colorscheme ir_black
+"":syn match Braces display '[{}()\[\]]'
+
 "" set font
 set gfn=Source\ Code\ Pro\ 11
 

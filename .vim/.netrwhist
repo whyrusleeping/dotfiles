@@ -1,7 +1,3 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/home/sleeping/.vim/colors'
-let g:netrw_dirhist_2='/home/sleeping/code/somnos/src'
-let g:netrw_dirhist_3='/home/sleeping'
-let g:netrw_dirhist_4='/home/sleeping/code/ruby'
-let g:netrw_dirhist_5='/usr/share/vim/vimfiles/nerdtree_plugin'
+let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_1='/home/whyrusleeping/code/somnos/src'
