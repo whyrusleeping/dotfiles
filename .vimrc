@@ -7,7 +7,7 @@
 set nocompatible
 filetype off
 set backspace=2
-set mouse=a ""allow mouse usage (gets annoying sometimes..)
+""set mouse=a ""allow mouse usage (gets annoying sometimes..)
 
 ""Vundle
 set rtp+=~/.vim/bundle/vundle
@@ -16,8 +16,9 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 ""Bundle 'scrooloose/syntastic'
+Bundle 'majutsushi/tagbar'
 Bundle 'tpope/vim-fugitive'
-""Bundle 'Valloric/YouCompleteMe'
+Bundle 'Valloric/YouCompleteMe'
 
 ""Pathogen
 "" call pathogen#infect()
@@ -63,20 +64,46 @@ set smartindent
 map <C-F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 set tags+=./
 
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+	\ }
+
 "" set line numbers
 set nu
 set cursorline
+
+"" Ycm Config
+let g:ycm_min_num_of_chars_for_completion=1
 
 "" Filetype Plugins
 if has("autocmd")
 	filetype plugin indent on
 endif
 
-"" ruby
-autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
-autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
-autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
-autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 ""improve autocomplete menu color
 highlight Pmenu ctermbg=238 gui=bold
 
@@ -107,7 +134,7 @@ map <Leader>\ ^
 
 "" Delete current word (i know there should be a command to do this, but at
 "" the time of writing i have no internet)
-map <Leader>d bvw<left>x
+""map <Leader>d bvw<left>x
 "" map <Leader>s bvw<left>xi
 
 "" Autoindent entire file
@@ -142,7 +169,7 @@ map <Leader>er :e scp://
 """""""""""""""""""""""""""""""""
 
 "" set multicolor mode
-set t_Co=256
+"" set t_Co=256
 
 
 

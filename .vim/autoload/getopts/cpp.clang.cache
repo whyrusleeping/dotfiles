@@ -2,5 +2,5 @@
 -I/usr/include/c++/4.7.2/x86_64-redhat-linux/
 -I/usr/include/c++/4.7.2/backward/
 -I/usr/local/include/
--I/usr/lib/clang/3.0/include/
+-I/usr/lib/clang/3.1/include/
 -I/usr/include/
