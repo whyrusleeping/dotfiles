@@ -18,7 +18,9 @@ Bundle 'gmarik/vundle'
 ""Bundle 'scrooloose/syntastic'
 Bundle 'majutsushi/tagbar'
 Bundle 'tpope/vim-fugitive'
-Bundle 'Valloric/YouCompleteMe'
+""Bundle 'Valloric/YouCompleteMe'
+Bundle 'scrooloose/nerdtree'
+Bundle 'ervandew/supertab'
 
 ""Pathogen
 "" call pathogen#infect()
@@ -101,7 +103,7 @@ let g:ycm_min_num_of_chars_for_completion=1
 
 "" Filetype Plugins
 autocmd FileType go set omnifunc=gocomplete#Complete
-
+autocmd FileType go let g:SuperTabDefaultCompletionType="<c-x><c-o>"
 if has("autocmd") && exists("+omnifunc")
 	filetype plugin indent on
 	autocmd Filetype *
@@ -109,6 +111,7 @@ if has("autocmd") && exists("+omnifunc")
 				\   setlocal omnifunc=syntaxcomplete#Complete |
 				\ endif
 endif
+
 
 ""improve autocomplete menu color
 highlight Pmenu ctermbg=238 gui=bold
