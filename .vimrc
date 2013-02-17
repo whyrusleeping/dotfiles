@@ -21,6 +21,7 @@ Bundle 'tpope/vim-fugitive'
 ""Bundle 'Valloric/YouCompleteMe'
 Bundle 'scrooloose/nerdtree'
 Bundle 'ervandew/supertab'
+Bundle 'Raimondi/delimitMate'
 
 ""Pathogen
 "" call pathogen#infect()
