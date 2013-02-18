@@ -148,7 +148,7 @@ map <Leader>\ ^
 "" map <Leader>s bvw<left>xi
 
 "" Autoindent entire file
-map <Leader>kf ggVG=
+map <Leader>kf gg=G``
 
 "" map the spacebar to search
 map <space> /
