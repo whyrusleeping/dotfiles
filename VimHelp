@@ -1,7 +1,0 @@
-Here is a list of common commands i use:
-
-:A 		- swap header/source (thanks to a.vim)
-,qa 	- quit all
-,w 		- move to next window
-,kf 	- tabify entire page
-
