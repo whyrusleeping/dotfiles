@@ -22,6 +22,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/nerdtree'
 Bundle 'ervandew/supertab'
 Bundle 'Raimondi/delimitMate'
+""Bundle 'KevinGoodsell/vim-csexact'
 
 ""Pathogen
 "" call pathogen#infect()
