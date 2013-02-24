@@ -13,7 +13,7 @@ ZSH_THEME="agnoster"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias :q=exit
 alias gitl='git log --graph --full-history --all --pretty=format:"%h%x09%d%x20%s"'
-
+alias vim=gvim
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"

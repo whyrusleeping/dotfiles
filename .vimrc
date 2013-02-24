@@ -7,7 +7,7 @@
 set nocompatible
 filetype off
 set backspace=2
-""set mouse=a ""allow mouse usage (gets annoying sometimes..)
+set mouse=a ""allow mouse usage (gets annoying sometimes..)
 
 ""Vundle
 set rtp+=~/.vim/bundle/vundle
@@ -156,10 +156,11 @@ map <space> /
 map <C-space> ?
 
 "" make shortcuts for common make labels I use
-map <Leader>mm :w<CR>:make<CR>
-map <Leader>mr :w<CR>:make rebuild<CR>
-map <Leader>mc :w<CR>:make clean<CR>
-map <Leader>md :w<CR>:make debug<CR>
+map <C-b>		:w<CR>:make<CR>
+map <Leader>mm  :w<CR>:make<CR>
+map <Leader>mr  :w<CR>:make rebuild<CR>
+map <Leader>mc  :w<CR>:make clean<CR>
+map <Leader>md  :w<CR>:make debug<CR>
 
 ""Git shortcuts for vim fugitive
 map <Leader>gs :Gstatus<CR>
@@ -179,10 +180,8 @@ map <Leader>er :e scp://
 "
 """""""""""""""""""""""""""""""""
 
-"" set multicolor mode
-"" set t_Co=256
-
-
+set guioptions=aegit
+""set guifont='Source Code Pro for Powerline 13'
 
 "" color schemes
 syntax enable
@@ -190,7 +189,7 @@ colorscheme ir_black
 "":syn match Braces display '[{}()\[\]]'
 
 "" set font
-set gfn=Source\ Code\ Pro\ 11
+set gfn=Source\ Code\ Pro\ for\ Powerline\ 13
 
 "" Dont show compiled files in source tree
 set wildignore=*.o,*.pdf
