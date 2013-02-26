@@ -28,12 +28,29 @@ Bundle 'Raimondi/delimitMate'
 "" call pathogen#infect()
 
 "" Go
-set rtp+=$GOROOT/misc/vim
+""set rtp+=$GOROOT/misc/vim
 "" au BufRead,BufNewFile *.go set filetype=go 
 
 "" less
 au BufNewFile,BufRead *.less set filetype=less
 
+"""""""""""""""""""""""""
+"
+" > Functions
+"
+"""""""""""""""""""""""""
+
+command -bang -nargs=? QFix call QFixToggle(<bang>0) 
+function! QFixToggle(forced) 
+  if exists("g:qfix_win") && a:forced == 0 
+    cclose 
+    unlet g:qfix_win 
+  else 
+    ""copen 10 
+	botright cope
+    let g:qfix_win = bufnr("$") 
+  endif 
+endfunction
 
 """""""""""""""""""""""""
 "
@@ -103,6 +120,9 @@ set cursorline
 "" Ycm Config
 let g:ycm_min_num_of_chars_for_completion=1
 
+"" Supertab config
+let g:SuperTabClosePreviewOnPopupClose=1
+
 "" Filetype Plugins
 autocmd FileType go set omnifunc=gocomplete#Complete
 autocmd FileType go let g:SuperTabDefaultCompletionType="<c-x><c-o>"
@@ -166,7 +186,7 @@ map <Leader>md  :w<CR>:make debug<CR>
 map <Leader>gs :Gstatus<CR>
 
 "" cope, opens a window that displays errors
-map <Leader>cc :botright cope<CR>
+map <Leader>c :QFix<CR>
 
 "" Replace word under cursor (so nice...)
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
