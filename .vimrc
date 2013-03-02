@@ -151,6 +151,17 @@ command Wq wq
 "
 """""""""""""""""""""""""""""""""
 
+"" Hard Mode
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+noremap h <NOP>
+"" noremap j <NOP>
+"" noremap k <NOP>
+noremap l <NOP>
+
+imap <C-s> <ESC>:w<CR>i
 nnoremap ; :
 let mapleader = ","
 map <Leader>w <C-w>w
