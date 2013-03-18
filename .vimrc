@@ -21,9 +21,9 @@ Bundle 'tpope/vim-fugitive'
 ""Bundle 'Valloric/YouCompleteMe'
 Bundle 'scrooloose/nerdtree'
 Bundle 'ervandew/supertab'
-Bundle 'Raimondi/delimitMate'
+""Bundle 'Raimondi/delimitMate'
 ""Bundle 'KevinGoodsell/vim-csexact'
-
+Bundle 'airblade/vim-gitgutter'
 ""Pathogen
 "" call pathogen#infect()
 
@@ -156,10 +156,10 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
-noremap h <NOP>
-"" noremap j <NOP>
-"" noremap k <NOP>
-noremap l <NOP>
+imap <Up> <NOP>
+imap <Down> <NOP>
+imap <Left> <NOP>
+imap <Right> <NOP>
 
 imap <C-s> <ESC>:w<CR>i
 nnoremap ; :
@@ -205,6 +205,7 @@ nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 "" Open remote file
 map <Leader>er :e scp://
 
+let b:delimitMate_expand_cr=1
 """""""""""""""""""""""""""""""""
 "
 " > Colors And Fonts
@@ -218,6 +219,10 @@ set guioptions=aegit
 syntax enable
 colorscheme ir_black
 "":syn match Braces display '[{}()\[\]]'
+
+"" Keep gutter column open
+""sign define dummy
+""execute 'sign place 9999 line=1 name=dummy buffer=' . bufnr('')
 
 "" set font
 set gfn=Source\ Code\ Pro\ for\ Powerline\ 13
