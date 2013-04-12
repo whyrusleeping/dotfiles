@@ -23,16 +23,15 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'ervandew/supertab'
 ""Bundle 'Raimondi/delimitMate'
 ""Bundle 'KevinGoodsell/vim-csexact'
-Bundle 'airblade/vim-gitgutter'
+""Bundle 'airblade/vim-gitgutter'
+Bundle 'Rip-Rip/clang_complete'
+""Bundle 'Lokaltog/powerline',{'rtp': 'powerline/bindings/vim'}
 ""Pathogen
 "" call pathogen#infect()
 
 "" Go
 ""set rtp+=$GOROOT/misc/vim
 "" au BufRead,BufNewFile *.go set filetype=go 
-
-"" less
-au BufNewFile,BufRead *.less set filetype=less
 
 """""""""""""""""""""""""
 "
@@ -42,14 +41,14 @@ au BufNewFile,BufRead *.less set filetype=less
 
 command -bang -nargs=? QFix call QFixToggle(<bang>0) 
 function! QFixToggle(forced) 
-  if exists("g:qfix_win") && a:forced == 0 
-    cclose 
-    unlet g:qfix_win 
-  else 
-    ""copen 10 
-	botright cope
-    let g:qfix_win = bufnr("$") 
-  endif 
+	if exists("g:qfix_win") && a:forced == 0 
+		cclose 
+		unlet g:qfix_win 
+	else 
+		""copen 10 
+		botright cope
+		let g:qfix_win = bufnr("$") 
+	endif 
 endfunction
 
 """""""""""""""""""""""""
@@ -124,16 +123,23 @@ let g:ycm_min_num_of_chars_for_completion=1
 let g:SuperTabClosePreviewOnPopupClose=1
 
 "" Filetype Plugins
-autocmd FileType go set omnifunc=gocomplete#Complete
-autocmd FileType go let g:SuperTabDefaultCompletionType="<c-x><c-o>"
-if has("autocmd") && exists("+omnifunc")
-	filetype plugin indent on
-	autocmd Filetype *
-				\ if &omnifunc == "" |
-				\   setlocal omnifunc=syntaxcomplete#Complete |
-				\ endif
-endif
+augroup golang
+	autocmd!
+	autocmd FileType go set omnifunc=gocomplete#Complete
+	autocmd FileType go let g:SuperTabDefaultCompletionType="<c-x><c-o>"
+	if has("autocmd") && exists("+omnifunc")
+		filetype plugin indent on
+		autocmd Filetype *
+					\ if &omnifunc == "" |
+					\   setlocal omnifunc=syntaxcomplete#Complete |
+					\ endif
+	endif
+augroup END
 
+augroup
+	autocmd!
+	""	autocmd BufWrite ~/.vimrc :so ~/.vimrc
+augroup END
 
 ""improve autocomplete menu color
 highlight Pmenu ctermbg=238 gui=bold
@@ -161,6 +167,11 @@ imap <Down> <NOP>
 imap <Left> <NOP>
 imap <Right> <NOP>
 
+inoremap <ESC> <NOP>
+inoremap jk <ESC>
+
+
+""My favorite key mappings
 imap <C-s> <ESC>:w<CR>i
 nnoremap ; :
 let mapleader = ","
@@ -174,10 +185,9 @@ map <Leader>a  :tabn<CR>
 map \ $
 map <Leader>\ ^
 
-"" Delete current word (i know there should be a command to do this, but at
-"" the time of writing i have no internet)
-""map <Leader>d bvw<left>x
-"" map <Leader>s bvw<left>xi
+""open vimrc for editing
+nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
+nnoremap <Leader>sv :source $MYVIMRC<CR>
 
 "" Autoindent entire file
 map <Leader>kf gg=G``
@@ -187,7 +197,7 @@ map <space> /
 map <C-space> ?
 
 "" make shortcuts for common make labels I use
-map <C-b>		:w<CR>:make<CR>
+map <C-b>		:make<CR>
 map <Leader>mm  :w<CR>:make<CR>
 map <Leader>mr  :w<CR>:make rebuild<CR>
 map <Leader>mc  :w<CR>:make clean<CR>
@@ -196,8 +206,10 @@ map <Leader>md  :w<CR>:make debug<CR>
 ""Git shortcuts for vim fugitive
 map <Leader>gs :Gstatus<CR>
 
-"" cope, opens a window that displays errors
+"" I freaking love my quick fix list, but sometimes the commands are obnoxious
 map <Leader>c :QFix<CR>
+map <Leader>xc :cn<CR>
+map <Leader>vc :cp<CR>
 
 "" Replace word under cursor (so nice...)
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
@@ -205,7 +217,11 @@ nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 "" Open remote file
 map <Leader>er :e scp://
 
+nnoremap <F12>c :exe ':silent !google-chrome %'<CR>
+nnoremap <F12>o :exe ':silent !opera %'<CR>
+
 let b:delimitMate_expand_cr=1
+
 """""""""""""""""""""""""""""""""
 "
 " > Colors And Fonts
@@ -215,14 +231,11 @@ let b:delimitMate_expand_cr=1
 set guioptions=aegit
 ""set guifont='Source Code Pro for Powerline 13'
 
+set scrolloff=4
 "" color schemes
 syntax enable
-colorscheme ir_black
-"":syn match Braces display '[{}()\[\]]'
 
-"" Keep gutter column open
-""sign define dummy
-""execute 'sign place 9999 line=1 name=dummy buffer=' . bufnr('')
+colorscheme ir_black
 
 "" set font
 set gfn=Source\ Code\ Pro\ for\ Powerline\ 13
@@ -233,4 +246,4 @@ set wildignore=*.o,*.pdf
 "" dont redraw screen while running macros (increases speed)
 set lazyredraw
 
-
+autocmd Filetype *.html syn sync fromstart
