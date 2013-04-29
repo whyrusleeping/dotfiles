@@ -21,11 +21,14 @@ Bundle 'tpope/vim-fugitive'
 ""Bundle 'Valloric/YouCompleteMe'
 Bundle 'scrooloose/nerdtree'
 Bundle 'ervandew/supertab'
+Bundle 'lukaszb/vim-web-indent'
 ""Bundle 'Raimondi/delimitMate'
 ""Bundle 'KevinGoodsell/vim-csexact'
 ""Bundle 'airblade/vim-gitgutter'
 Bundle 'Rip-Rip/clang_complete'
 ""Bundle 'Lokaltog/powerline',{'rtp': 'powerline/bindings/vim'}
+Bundle 'lordm/vim-browser-reload-linux'
+
 ""Pathogen
 "" call pathogen#infect()
 
@@ -141,6 +144,7 @@ augroup
 	""	autocmd BufWrite ~/.vimrc :so ~/.vimrc
 augroup END
 
+
 ""improve autocomplete menu color
 highlight Pmenu ctermbg=238 gui=bold
 
@@ -149,6 +153,10 @@ command W w
 command Q q
 command WQ wq
 command Wq wq
+
+"" Save and restore user defined folds
+au BufWinLeave * silent! mkview
+au BufWinEnter * silent! loadview
 
 
 """""""""""""""""""""""""""""""""

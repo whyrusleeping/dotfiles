@@ -63,11 +63,9 @@ endif
 let colors_name = "ir_black"
 
 
-"hi Example         guifg=NONE        guibg=NONE        gui=NONE      ctermfg=NONE        ctermbg=NONE        cterm=NONE
-
 " General colors
-hi Normal           guifg=#f6f3e8     guibg=#222830     gui=NONE      ctermfg=NONE        ctermbg=NONE        cterm=NONE
-hi NonText          guifg=#070707     guibg=#222830     gui=NONE      ctermfg=black       ctermbg=NONE        cterm=NONE
+hi Normal           guifg=#f6f3e8     guibg=#22262A     gui=NONE      ctermfg=NONE        ctermbg=NONE        cterm=NONE
+hi NonText          guifg=#070707     guibg=#22262A     gui=NONE      ctermfg=black       ctermbg=NONE        cterm=NONE
 hi CursorLine 		guifg=#353532	  guibg=#353532 	gui=NONE
 
 hi Cursor           guifg=black       guibg=white       gui=NONE      ctermfg=black       ctermbg=white       cterm=reverse
@@ -109,11 +107,11 @@ hi Comment          guifg=#7C7C7C     guibg=NONE        gui=NONE      ctermfg=da
 hi String           guifg=#64FF38     guibg=NONE        gui=NONE      ctermfg=green       ctermbg=NONE        cterm=NONE
 hi Number           guifg=#FF4444     guibg=NONE        gui=NONE      ctermfg=magenta     ctermbg=NONE        cterm=NONE
 
-hi Keyword          guifg=#96CBFE     guibg=NONE        gui=NONE      ctermfg=blue        ctermbg=NONE        cterm=NONE
+hi Keyword          guifg=#3366CC     guibg=NONE        gui=NONE      ctermfg=blue        ctermbg=NONE        cterm=NONE
 hi PreProc          guifg=#96CBFE     guibg=NONE        gui=NONE      ctermfg=blue        ctermbg=NONE        cterm=NONE
 hi Conditional      guifg=#6699CC     guibg=NONE        gui=NONE      ctermfg=blue        ctermbg=NONE        cterm=NONE  " if else end
 
-hi Todo             guifg=#8f8f8f     guibg=NONE        gui=NONE      ctermfg=red         ctermbg=NONE        cterm=NONE
+hi Todo             guifg=#FF8f8f     guibg=NONE        gui=NONE      ctermfg=red         ctermbg=NONE        cterm=NONE
 hi Constant         guifg=#44CC88     guibg=NONE        gui=NONE      ctermfg=cyan        ctermbg=NONE        cterm=NONE
 
 hi Identifier       guifg=#B6B5FE     guibg=NONE        gui=NONE      ctermfg=cyan        ctermbg=NONE        cterm=NONE
@@ -124,9 +122,6 @@ hi Statement        guifg=#3366CC     guibg=NONE        gui=NONE      ctermfg=li
 hi Special          guifg=#E18964     guibg=NONE        gui=NONE      ctermfg=white       ctermbg=NONE        cterm=NONE
 hi Delimiter        guifg=#00A0A0     guibg=NONE        gui=NONE      ctermfg=cyan        ctermbg=NONE        cterm=NONE
 hi Operator         guifg=#FFAAAA     guibg=NONE        gui=NONE      ctermfg=white       ctermbg=NONE        cterm=NONE
-
-"custom defined 
-hi Braces guifg=red
 
 hi link Character       Constant
 hi link Boolean         Constant
@@ -205,13 +200,6 @@ hi link htmlEndTag      Identifier
 " Special for Javascript
 hi link javaScriptNumber      Number 
 
-
-" Special for Python
-"hi  link pythonEscape         Keyword      
-
-
 " Special for CSharp
 hi  link csXmlTag             Keyword      
 
-
-" Special for PHP
