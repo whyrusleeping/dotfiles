@@ -184,6 +184,11 @@ if go_highlight_extra_types != 0
   syn match goExtraType /\<unsafe\.Pointer\>/
 endif
 
+syn match goMember "\.\zs\w\+\ze\%((\@!\W\)"
+syn match goMethod "\.\zs\w\+\ze("
+hi def link goMember Identifier
+hi def link goMethod Function
+
 " Space-tab error
 if go_highlight_space_tab_error != 0
   syn match goSpaceError display " \+\t"me=e-1
