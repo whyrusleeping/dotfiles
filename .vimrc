@@ -20,21 +20,25 @@ Bundle 'majutsushi/tagbar'
 Bundle 'tpope/vim-fugitive'
 ""Bundle 'Valloric/YouCompleteMe'
 Bundle 'scrooloose/nerdtree'
+""Bundle 'troydm/easytree.vim'
 Bundle 'ervandew/supertab'
 Bundle 'lukaszb/vim-web-indent'
+Bundle 'jnwhiteh/vim-golang'
 ""Bundle 'Raimondi/delimitMate'
 ""Bundle 'KevinGoodsell/vim-csexact'
 ""Bundle 'airblade/vim-gitgutter'
 Bundle 'Rip-Rip/clang_complete'
 ""Bundle 'Lokaltog/powerline',{'rtp': 'powerline/bindings/vim'}
 Bundle 'lordm/vim-browser-reload-linux'
+Bundle 'dgryski/vim-godef'
+Bundle 'thinca/vim-visualstar'
 
 ""Pathogen
 "" call pathogen#infect()
 
 "" Go
 ""set rtp+=$GOROOT/misc/vim
-"" au BufRead,BufNewFile *.go set filetype=go 
+au BufRead,BufNewFile *.go set filetype=go 
 
 """""""""""""""""""""""""
 "
@@ -250,6 +254,8 @@ set gfn=Source\ Code\ Pro\ for\ Powerline\ 13
 
 "" Dont show compiled files in source tree
 set wildignore=*.o,*.pdf
+
+set encoding=utf-8
 
 "" dont redraw screen while running macros (increases speed)
 set lazyredraw
