@@ -64,7 +64,7 @@ let colors_name = "ir_black"
 
 
 " General colors
-hi Normal           guifg=#f6f3e8     guibg=#22262A     gui=NONE      ctermfg=NONE        ctermbg=NONE        cterm=NONE
+hi Normal           guifg=#f6f3e8     guibg=#1A1A1A     gui=NONE      ctermfg=NONE        ctermbg=NONE        cterm=NONE
 hi NonText          guifg=#070707     guibg=#22262A     gui=NONE      ctermfg=black       ctermbg=NONE        cterm=NONE
 hi CursorLine 		guifg=#353532	  guibg=#353532 	gui=NONE
 

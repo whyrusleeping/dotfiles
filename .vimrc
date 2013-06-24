@@ -32,6 +32,7 @@ Bundle 'Rip-Rip/clang_complete'
 Bundle 'lordm/vim-browser-reload-linux'
 Bundle 'dgryski/vim-godef'
 Bundle 'thinca/vim-visualstar'
+Bundle 'kien/ctrlp.vim'
 
 ""Pathogen
 "" call pathogen#infect()
@@ -131,7 +132,6 @@ let g:SuperTabClosePreviewOnPopupClose=1
 
 "" Filetype Plugins
 augroup golang
-	autocmd!
 	autocmd FileType go set omnifunc=gocomplete#Complete
 	autocmd FileType go let g:SuperTabDefaultCompletionType="<c-x><c-o>"
 	if has("autocmd") && exists("+omnifunc")
@@ -141,11 +141,6 @@ augroup golang
 					\   setlocal omnifunc=syntaxcomplete#Complete |
 					\ endif
 	endif
-augroup END
-
-augroup
-	autocmd!
-	""	autocmd BufWrite ~/.vimrc :so ~/.vimrc
 augroup END
 
 
@@ -185,6 +180,7 @@ inoremap jk <ESC>
 
 ""My favorite key mappings
 imap <C-s> <ESC>:w<CR>i
+inoremap <c-o> <CR>}<ESC>O
 nnoremap ; :
 let mapleader = ","
 map <Leader>w <C-w>w
