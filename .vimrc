@@ -20,21 +20,26 @@ Bundle 'majutsushi/tagbar'
 Bundle 'tpope/vim-fugitive'
 ""Bundle 'Valloric/YouCompleteMe'
 Bundle 'scrooloose/nerdtree'
+""Bundle 'troydm/easytree.vim'
 Bundle 'ervandew/supertab'
 Bundle 'lukaszb/vim-web-indent'
+Bundle 'jnwhiteh/vim-golang'
 ""Bundle 'Raimondi/delimitMate'
 ""Bundle 'KevinGoodsell/vim-csexact'
 ""Bundle 'airblade/vim-gitgutter'
 Bundle 'Rip-Rip/clang_complete'
 ""Bundle 'Lokaltog/powerline',{'rtp': 'powerline/bindings/vim'}
 Bundle 'lordm/vim-browser-reload-linux'
+Bundle 'dgryski/vim-godef'
+Bundle 'thinca/vim-visualstar'
+Bundle 'kien/ctrlp.vim'
 
 ""Pathogen
 "" call pathogen#infect()
 
 "" Go
 ""set rtp+=$GOROOT/misc/vim
-"" au BufRead,BufNewFile *.go set filetype=go 
+au BufRead,BufNewFile *.go set filetype=go 
 
 """""""""""""""""""""""""
 "
@@ -127,7 +132,6 @@ let g:SuperTabClosePreviewOnPopupClose=1
 
 "" Filetype Plugins
 augroup golang
-	autocmd!
 	autocmd FileType go set omnifunc=gocomplete#Complete
 	autocmd FileType go let g:SuperTabDefaultCompletionType="<c-x><c-o>"
 	if has("autocmd") && exists("+omnifunc")
@@ -137,11 +141,6 @@ augroup golang
 					\   setlocal omnifunc=syntaxcomplete#Complete |
 					\ endif
 	endif
-augroup END
-
-augroup
-	autocmd!
-	""	autocmd BufWrite ~/.vimrc :so ~/.vimrc
 augroup END
 
 
@@ -181,6 +180,7 @@ inoremap jk <ESC>
 
 ""My favorite key mappings
 imap <C-s> <ESC>:w<CR>i
+inoremap <c-o> <CR>}<ESC>O
 nnoremap ; :
 let mapleader = ","
 map <Leader>w <C-w>w
@@ -228,6 +228,8 @@ map <Leader>er :e scp://
 nnoremap <F12>c :exe ':silent !google-chrome %'<CR>
 nnoremap <F12>o :exe ':silent !opera %'<CR>
 
+iab :+ :=
+
 let b:delimitMate_expand_cr=1
 
 """""""""""""""""""""""""""""""""
@@ -251,7 +253,10 @@ set gfn=Source\ Code\ Pro\ for\ Powerline\ 13
 "" Dont show compiled files in source tree
 set wildignore=*.o,*.pdf
 
+set encoding=utf-8
+
 "" dont redraw screen while running macros (increases speed)
 set lazyredraw
 
 autocmd Filetype *.html syn sync fromstart
+set shell=zsh
