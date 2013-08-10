@@ -34,11 +34,7 @@ Bundle 'dgryski/vim-godef'
 Bundle 'thinca/vim-visualstar'
 Bundle 'kien/ctrlp.vim'
 
-""Pathogen
-"" call pathogen#infect()
-
 "" Go
-""set rtp+=$GOROOT/misc/vim
 au BufRead,BufNewFile *.go set filetype=go 
 
 """""""""""""""""""""""""
@@ -53,7 +49,6 @@ function! QFixToggle(forced)
 		cclose 
 		unlet g:qfix_win 
 	else 
-		""copen 10 
 		botright cope
 		let g:qfix_win = bufnr("$") 
 	endif 
@@ -169,10 +164,10 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
-imap <Up> <NOP>
-imap <Down> <NOP>
-imap <Left> <NOP>
-imap <Right> <NOP>
+inoremap <Up> <NOP>
+inoremap <Down> <NOP>
+inoremap <Left> <NOP>
+inoremap <Right> <NOP>
 
 inoremap <ESC> <NOP>
 inoremap jk <ESC>
@@ -228,6 +223,7 @@ map <Leader>er :e scp://
 nnoremap <F12>c :exe ':silent !google-chrome %'<CR>
 nnoremap <F12>o :exe ':silent !opera %'<CR>
 
+"" Autocorrect go declaration operator
 iab :+ :=
 
 let b:delimitMate_expand_cr=1
