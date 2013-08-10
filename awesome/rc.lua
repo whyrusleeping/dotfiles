@@ -323,8 +323,14 @@ clientkeys = awful.util.table.join(
 )
 
 globalkeys = awful.util.table.join(globalkeys,
+-- volume controls
 awful.key({"Control"}, "]" , APW.Up),
-awful.key({"Control"}, "[" , APW.Down))
+awful.key({"Control"}, "[" , APW.Down),
+-- launchers
+awful.key({"Control",modkey}, "m", function() awful.util.spawn("gnome-system-monitor") end),
+awful.key({"Control",modkey}, "c", function() awful.util.spawn("google-chrome") end),
+awful.key({"Control",modkey}, "t", function() awful.util.spawn("thunar") end)
+)
 
 -- Bind all key numbers to tags.
 -- Be careful: we use keycodes to make it works on any keyboard layout.
