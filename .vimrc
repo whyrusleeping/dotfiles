@@ -27,7 +27,7 @@ Bundle 'jnwhiteh/vim-golang'
 ""Bundle 'Raimondi/delimitMate'
 ""Bundle 'KevinGoodsell/vim-csexact'
 ""Bundle 'airblade/vim-gitgutter'
-Bundle 'Rip-Rip/clang_complete'
+"Bundle 'Rip-Rip/clang_complete'
 ""Bundle 'Lokaltog/powerline',{'rtp': 'powerline/bindings/vim'}
 Bundle 'lordm/vim-browser-reload-linux'
 Bundle 'dgryski/vim-godef'
@@ -183,6 +183,8 @@ map <Leader>q :wq<CR>
 map <Leader>n :nohl<CR>
 map <Leader>tt :TagbarToggle<CR>
 map <Leader>tr :NERDTreeToggle<CR>
+map <Leader>tg :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+map <Leader>p :CtrlPTag<CR>
 map <Leader>qa :qall<CR>
 map <Leader>a  :tabn<CR>
 map \ $
