@@ -257,4 +257,4 @@ set encoding=utf-8
 set lazyredraw
 
 autocmd Filetype *.html syn sync fromstart
-set shell=zsh
+set shell=bash
