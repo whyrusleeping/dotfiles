@@ -10,9 +10,9 @@ local beautiful = require("beautiful")
 -- Notification library
 local naughty = require("naughty")
 local menubar = require("menubar")
-
 local vicious = require("vicious")
-local APW = require("apw/widget")
+
+local batwidget = require("batmon/widget")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -45,7 +45,7 @@ end
 beautiful.init("/usr/share/awesome/themes/zenburn/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "gnome-terminal"
+terminal = "xfce4-terminal"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -59,8 +59,8 @@ modkey = "Mod4"
 -- Table of layouts to cover with awful.layout.inc, order matters.
 local layouts =
 {
-  -- awful.layout.suit.floating,
   awful.layout.suit.tile,
+  awful.layout.suit.floating,
   awful.layout.suit.tile.left,
   awful.layout.suit.tile.bottom,
   -- awful.layout.suit.tile.top,
@@ -74,15 +74,6 @@ local layouts =
 }
 -- }}}
 
--- {{{ Wallpaper
-if beautiful.wallpaper then
-  for s = 1, screen.count() do
-    gears.wallpaper.maximized(beautiful.wallpaper, s, true)
-  end
-end
--- }}}
-
--- Initialize widget
 memwidget = awful.widget.progressbar()
 -- Progressbar properties
 memwidget:set_width(8)
@@ -90,7 +81,7 @@ memwidget:set_height(10)
 memwidget:set_vertical(true)
 memwidget:set_background_color("#494B4F")
 memwidget:set_border_color(nil)
-memwidget:set_color({ type = "linear", from = { 0, 0 }, to = { 10,0 }, stops = { {0, "#AECF96"}, {0.5, "#88A175"}, 
+memwidget:set_color({ type = "linear", from = { 0, 0 }, to = { 10,0 }, stops = { {0, "#AECF96"}, {0.5, "#88A175"},
                     {1, "#FF5656"}}})
 -- Register widget
 vicious.register(memwidget, vicious.widgets.mem, "$1", 13)
@@ -100,10 +91,18 @@ cpuwidget = awful.widget.graph()
 -- Graph properties
 cpuwidget:set_width(50)
 cpuwidget:set_background_color("#494B4F")
-cpuwidget:set_color({ type = "linear", from = { 0, 0 }, to = { 10,0 }, stops = { {0, "#FF5656"}, {0.5, "#88A175"}, 
+cpuwidget:set_color({ type = "linear", from = { 0, 0 }, to = { 10,0 }, stops = { {0, "#FF5656"}, {0.5, "#88A175"},
                     {1, "#AECF96" }}})
 -- Register widget
 vicious.register(cpuwidget, vicious.widgets.cpu, "$1")
+
+-- {{{ Wallpaper
+if beautiful.wallpaper then
+  for s = 1, screen.count() do
+    gears.wallpaper.maximized(beautiful.wallpaper, s, true)
+  end
+end
+-- }}}
 
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
@@ -217,7 +216,7 @@ for s = 1, screen.count() do
   local right_layout = wibox.layout.fixed.horizontal()
   if s == 1 then right_layout:add(wibox.widget.systray()) end
   right_layout:add(cpuwidget)
-  right_layout:add(APW)
+  right_layout:add(batwidget)
   right_layout:add(memwidget)
   right_layout:add(mytextclock)
   right_layout:add(mylayoutbox[s])
@@ -322,10 +321,6 @@ clientkeys = awful.util.table.join(
     end)
 )
 
-globalkeys = awful.util.table.join(globalkeys,
-awful.key({"Control"}, "]" , APW.Up),
-awful.key({"Control"}, "[" , APW.Down))
-
 -- Bind all key numbers to tags.
 -- Be careful: we use keycodes to make it works on any keyboard layout.
 -- This should map on the top row of your keyboard, usually 1 to 9.
@@ -380,7 +375,8 @@ awful.rules.rules = {
            border_color = beautiful.border_normal,
            focus = awful.client.focus.filter,
            keys = clientkeys,
-           buttons = clientbuttons } },
+           buttons = clientbuttons,
+		   size_hints_honor = false } },
   { rule = { class = "MPlayer" },
     properties = { floating = true } },
   { rule = { class = "pinentry" },
@@ -466,4 +462,6 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
-awful.util.spawn_with_shell("np-applet")
+awful.util.spawn("kill nm-applet")
+awful.util.spawn_with_shell("nm-applet")
+--awful.util.spawn("conky")
