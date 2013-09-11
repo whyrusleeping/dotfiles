@@ -3,13 +3,16 @@ local gears = require("gears")
 local awful = require("awful")
 awful.rules = require("awful.rules")
 require("awful.autofocus")
+-- Widget and layout library
 local wibox = require("wibox")
+-- Theme handling library
 local beautiful = require("beautiful")
+-- Notification library
 local naughty = require("naughty")
 local menubar = require("menubar")
 
 local vicious = require("vicious")
-local APW = require("apw/widget")
+local batwidget = require("batmon/widget")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -37,26 +40,37 @@ end
 -- }}}
 
 
--- {{{ Theme
+-- {{{ Variable definitions
+-- Themes define colours, icons, and wallpapers
 beautiful.init("/usr/share/awesome/themes/zenburn/theme.lua")
 
--- Environment Variables
-terminal = "xfce4-terminal"
+-- This is used later as the default terminal and editor to run.
+terminal = "gnome-terminal"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
+-- Usually, Mod4 is the key with a logo between Control and Alt.
+-- If you do not like this or do not have such a key,
+-- I suggest you to remap Mod4 to another key using xmodmap or other tools.
+-- However, you can use another modifier like Mod1, but it may interact with others.
 modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 local layouts =
 {
+  -- awful.layout.suit.floating,
   awful.layout.suit.tile,
   awful.layout.suit.tile.left,
   awful.layout.suit.tile.bottom,
+  -- awful.layout.suit.tile.top,
   awful.layout.suit.fair,
   awful.layout.suit.fair.horizontal,
+  -- awful.layout.suit.spiral,
+  -- awful.layout.suit.spiral.dwindle,
   awful.layout.suit.max,
+  -- awful.layout.suit.max.fullscreen,
+  -- awful.layout.suit.magnifier
 }
 -- }}}
 
@@ -91,6 +105,13 @@ cpuwidget:set_color({ type = "linear", from = { 0, 0 }, to = { 10,0 }, stops = {
 -- Register widget
 vicious.register(cpuwidget, vicious.widgets.cpu, "$1")
 
+-- {{{ Wallpaper
+if beautiful.wallpaper then
+  for s = 1, screen.count() do
+    gears.wallpaper.maximized(beautiful.wallpaper, s, true)
+  end
+end
+-- }}}
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
 tags = {}
@@ -309,15 +330,8 @@ clientkeys = awful.util.table.join(
 )
 
 globalkeys = awful.util.table.join(globalkeys,
--- volume controls
 awful.key({"Control"}, "]" , APW.Up),
-awful.key({"Control"}, "[" , APW.Down),
--- launchers
-awful.key({"Control",modkey}, "m", function() awful.util.spawn("gnome-system-monitor") end),
-awful.key({modkey}, "g", function() awful.util.spawn("google-chrome") end),
-awful.key({"Control",modkey}, "t", function() awful.util.spawn("thunar") end),
-awful.key({modkey}, "F12", function() awful.util.spawn("xlock") end)
-)
+awful.key({"Control"}, "[" , APW.Down))
 
 -- Bind all key numbers to tags.
 -- Be careful: we use keycodes to make it works on any keyboard layout.
@@ -373,8 +387,8 @@ awful.rules.rules = {
            border_color = beautiful.border_normal,
            focus = awful.client.focus.filter,
            keys = clientkeys,
-		   size_hints_honor = false,
-           buttons = clientbuttons } },
+           buttons = clientbuttons,
+		   size_hints_honor = false } },
   { rule = { class = "MPlayer" },
     properties = { floating = true } },
   { rule = { class = "pinentry" },
@@ -462,3 +476,4 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 awful.util.spawn("kill nm-applet")
 awful.util.spawn_with_shell("nm-applet")
+--awful.util.spawn("conky")

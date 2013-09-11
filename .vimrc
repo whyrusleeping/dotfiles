@@ -127,6 +127,8 @@ let g:SuperTabClosePreviewOnPopupClose=1
 
 "" Filetype Plugins
 augroup golang
+	"" Autocorrect go declaration operator
+	autocmd FileType go iab :+ :=
 	autocmd FileType go set omnifunc=gocomplete#Complete
 	autocmd FileType go let g:SuperTabDefaultCompletionType="<c-x><c-o>"
 	if has("autocmd") && exists("+omnifunc")
@@ -183,6 +185,8 @@ map <Leader>q :wq<CR>
 map <Leader>n :nohl<CR>
 map <Leader>tt :TagbarToggle<CR>
 map <Leader>tr :NERDTreeToggle<CR>
+map <Leader>tg :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+map <Leader>p :CtrlPTag<CR>
 map <Leader>qa :qall<CR>
 map <Leader>a  :tabn<CR>
 map \ $
@@ -223,8 +227,6 @@ map <Leader>er :e scp://
 nnoremap <F12>c :exe ':silent !google-chrome %'<CR>
 nnoremap <F12>o :exe ':silent !opera %'<CR>
 
-"" Autocorrect go declaration operator
-iab :+ :=
 
 let b:delimitMate_expand_cr=1
 
@@ -255,4 +257,4 @@ set encoding=utf-8
 set lazyredraw
 
 autocmd Filetype *.html syn sync fromstart
-set shell=zsh
+set shell=bash
