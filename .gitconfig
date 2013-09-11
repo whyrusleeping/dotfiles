@@ -1,0 +1,20 @@
+[user]
+	name = Jeromy
+	email = jeromyj@gmail.com
+[alias]
+	co = checkout
+	ci = commit
+	ls = status
+	rf = checkout --
+	au = add -u
+[core]
+	editor = vim
+	whitespace = trailing-space, space-before-tab
+[color]
+	ui = true
+[merge]
+	tool = meld
+[push]
+	default = matching
+[apply]
+	whitespace = fix

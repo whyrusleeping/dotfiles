@@ -3,11 +3,8 @@ local gears = require("gears")
 local awful = require("awful")
 awful.rules = require("awful.rules")
 require("awful.autofocus")
--- Widget and layout library
 local wibox = require("wibox")
--- Theme handling library
 local beautiful = require("beautiful")
--- Notification library
 local naughty = require("naughty")
 local menubar = require("menubar")
 
@@ -40,37 +37,26 @@ end
 -- }}}
 
 
--- {{{ Variable definitions
--- Themes define colours, icons, and wallpapers
+-- {{{ Theme
 beautiful.init("/usr/share/awesome/themes/zenburn/theme.lua")
 
--- This is used later as the default terminal and editor to run.
-terminal = "gnome-terminal"
+-- Environment Variables
+terminal = "xfce4-terminal"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
--- Usually, Mod4 is the key with a logo between Control and Alt.
--- If you do not like this or do not have such a key,
--- I suggest you to remap Mod4 to another key using xmodmap or other tools.
--- However, you can use another modifier like Mod1, but it may interact with others.
 modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 local layouts =
 {
-  -- awful.layout.suit.floating,
   awful.layout.suit.tile,
   awful.layout.suit.tile.left,
   awful.layout.suit.tile.bottom,
-  -- awful.layout.suit.tile.top,
   awful.layout.suit.fair,
   awful.layout.suit.fair.horizontal,
-  -- awful.layout.suit.spiral,
-  -- awful.layout.suit.spiral.dwindle,
   awful.layout.suit.max,
-  -- awful.layout.suit.max.fullscreen,
-  -- awful.layout.suit.magnifier
 }
 -- }}}
 
@@ -328,8 +314,9 @@ awful.key({"Control"}, "]" , APW.Up),
 awful.key({"Control"}, "[" , APW.Down),
 -- launchers
 awful.key({"Control",modkey}, "m", function() awful.util.spawn("gnome-system-monitor") end),
-awful.key({"Control",modkey}, "c", function() awful.util.spawn("google-chrome") end),
-awful.key({"Control",modkey}, "t", function() awful.util.spawn("thunar") end)
+awful.key({modkey}, "g", function() awful.util.spawn("google-chrome") end),
+awful.key({"Control",modkey}, "t", function() awful.util.spawn("thunar") end),
+awful.key({modkey}, "F12", function() awful.util.spawn("xlock") end)
 )
 
 -- Bind all key numbers to tags.
@@ -386,6 +373,7 @@ awful.rules.rules = {
            border_color = beautiful.border_normal,
            focus = awful.client.focus.filter,
            keys = clientkeys,
+		   size_hints_honor = false,
            buttons = clientbuttons } },
   { rule = { class = "MPlayer" },
     properties = { floating = true } },
@@ -472,4 +460,5 @@ client.connect_signal("focus", function(c) c.border_color = beautiful.border_foc
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
-awful.util.spawn_with_shell("np-applet")
+awful.util.spawn("kill nm-applet")
+awful.util.spawn_with_shell("nm-applet")
