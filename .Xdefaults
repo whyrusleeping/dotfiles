@@ -61,8 +61,8 @@ urxvt*cursorColor: #DCDCCC
 !urxvt*color14:     #7D7DFB
 !urxvt*color15:     #ffffff
 
-*background: #002b36
-*foreground: #657b83
+*background: #002027
+*foreground: #7f929c
 !!*fading: 40
 *fadeColor: #002b36
 *cursorColor: #93a1a1
