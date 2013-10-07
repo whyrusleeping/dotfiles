@@ -45,7 +45,7 @@ end
 beautiful.init("/usr/share/awesome/themes/zenburn/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "gnome-terminal"
+terminal = "urxvt"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -223,8 +223,8 @@ for s = 1, screen.count() do
   -- Widgets that are aligned to the right
   local right_layout = wibox.layout.fixed.horizontal()
   if s == 1 then right_layout:add(wibox.widget.systray()) end
+  right_layout:add(batwidget)
   right_layout:add(cpuwidget)
-  right_layout:add(APW)
   right_layout:add(memwidget)
   right_layout:add(mytextclock)
   right_layout:add(mylayoutbox[s])
@@ -329,9 +329,6 @@ clientkeys = awful.util.table.join(
     end)
 )
 
-globalkeys = awful.util.table.join(globalkeys,
-awful.key({"Control"}, "]" , APW.Up),
-awful.key({"Control"}, "[" , APW.Down))
 
 -- Bind all key numbers to tags.
 -- Be careful: we use keycodes to make it works on any keyboard layout.
