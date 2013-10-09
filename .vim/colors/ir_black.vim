@@ -103,7 +103,7 @@ if version >= 700 " Vim 7.x specific colors
 endif
 
 " Syntax highlighting
-hi Comment          guifg=#7C7C7C     guibg=NONE        gui=NONE      ctermfg=red		  ctermbg=NONE        cterm=NONE
+hi Comment          guifg=#7C7C7C     guibg=NONE        gui=NONE      ctermfg=41		  ctermbg=NONE        cterm=NONE
 hi String           guifg=#64FF38     guibg=NONE        gui=NONE      ctermfg=green       ctermbg=NONE        cterm=NONE
 hi Number           guifg=#FF4444     guibg=NONE        gui=NONE      ctermfg=magenta     ctermbg=NONE        cterm=NONE
 
@@ -116,7 +116,7 @@ hi Constant         guifg=#44CC88     guibg=NONE        gui=NONE      ctermfg=cy
 
 hi Identifier       guifg=#B6B5FE     guibg=NONE        gui=NONE      ctermfg=cyan        ctermbg=NONE        cterm=NONE
 hi Function         guifg=#FFD2A7     guibg=NONE        gui=NONE      ctermfg=brown       ctermbg=NONE        cterm=NONE
-hi Type             guifg=#109AD2     guibg=NONE        gui=NONE      ctermfg=yellow      ctermbg=NONE        cterm=NONE
+hi Type             guifg=#109AD2     guibg=NONE        gui=NONE      ctermfg=136	      ctermbg=NONE        cterm=NONE
 ""hi Type             guifg=#D28A10     guibg=NONE        gui=NONE      ctermfg=yellow      ctermbg=NONE        cterm=NONE
 hi Statement        guifg=#3333EE     guibg=NONE        gui=NONE      ctermfg=lightblue   ctermbg=NONE        cterm=NONE
 

@@ -42,7 +42,8 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
-beautiful.init("/usr/share/awesome/themes/zenburn/theme.lua")
+--beautiful.init("/usr/share/awesome/themes/zenburn/theme.lua")
+beautiful.init("/usr/share/awesome/themes/dust/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "urxvt"
@@ -59,8 +60,8 @@ modkey = "Mod4"
 -- Table of layouts to cover with awful.layout.inc, order matters.
 local layouts =
 {
-  -- awful.layout.suit.floating,
   awful.layout.suit.tile,
+  awful.layout.suit.floating,
   awful.layout.suit.tile.left,
   awful.layout.suit.tile.bottom,
   -- awful.layout.suit.tile.top,
@@ -99,7 +100,7 @@ vicious.register(memwidget, vicious.widgets.mem, "$1", 13)
 cpuwidget = awful.widget.graph()
 -- Graph properties
 cpuwidget:set_width(50)
-cpuwidget:set_background_color("#494B4F")
+cpuwidget:set_background_color("#494B4F00")
 cpuwidget:set_color({ type = "linear", from = { 0, 0 }, to = { 10,0 }, stops = { {0, "#FF5656"}, {0.5, "#88A175"}, 
                     {1, "#AECF96" }}})
 -- Register widget
@@ -223,9 +224,9 @@ for s = 1, screen.count() do
   -- Widgets that are aligned to the right
   local right_layout = wibox.layout.fixed.horizontal()
   if s == 1 then right_layout:add(wibox.widget.systray()) end
-  right_layout:add(batwidget)
   right_layout:add(cpuwidget)
   right_layout:add(memwidget)
+  right_layout:add(batwidget)
   right_layout:add(mytextclock)
   right_layout:add(mylayoutbox[s])
 
@@ -294,6 +295,7 @@ globalkeys = awful.util.table.join(
   awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
 
   awful.key({ modkey, "Control" }, "n", awful.client.restore),
+  awful.key({modkey, }, "g", function() awful.util.spawn("chromium") end),
 
   -- Prompt
   awful.key({ modkey },      "r",   function () mypromptbox[mouse.screen]:run() end),
@@ -328,7 +330,6 @@ clientkeys = awful.util.table.join(
       c.maximized_vertical   = not c.maximized_vertical
     end)
 )
-
 
 -- Bind all key numbers to tags.
 -- Be careful: we use keycodes to make it works on any keyboard layout.
