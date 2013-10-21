@@ -27,7 +27,7 @@ Bundle 'jnwhiteh/vim-golang'
 ""Bundle 'Raimondi/delimitMate'
 ""Bundle 'KevinGoodsell/vim-csexact'
 ""Bundle 'airblade/vim-gitgutter'
-""Bundle 'Rip-Rip/clang_complete'
+Bundle 'Rip-Rip/clang_complete'
 ""Bundle 'Lokaltog/powerline',{'rtp': 'powerline/bindings/vim'}
 Bundle 'lordm/vim-browser-reload-linux'
 Bundle 'dgryski/vim-godef'
@@ -246,7 +246,7 @@ syntax enable
 colorscheme ir_black
 
 "" set font
-set gfn=Source\ Code\ Pro\ for\ Powerline\ 13
+set gfn=Source\ Code\ Pro\ for\ Powerline\ 12
 
 "" Dont show compiled files in source tree
 set wildignore=*.o,*.pdf

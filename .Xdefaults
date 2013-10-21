@@ -21,8 +21,8 @@ urxvt.cutchars:        `()'*<>[]{|}"
  
 ! Appearance
 !  - use a bitmap font
-urxvt*font:        xft:source code pro for powerline:medium:size=12
-urxvt*font:        xft:source code pro for powerline:medium:size=12
+urxvt*font:        xft:source code pro for powerline:medium:size=11
+urxvt*font:        xft:source code pro for powerline:medium:size=11
 !  - use xft for drawing fonts
 !urxvt*font:       xft:Terminus:8
 !  - cursor
