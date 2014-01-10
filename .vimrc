@@ -15,7 +15,7 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
-""Bundle 'scrooloose/syntastic'
+Bundle 'scrooloose/syntastic'
 Bundle 'majutsushi/tagbar'
 Bundle 'tpope/vim-fugitive'
 ""Bundle 'Valloric/YouCompleteMe'
@@ -33,6 +33,7 @@ Bundle 'lordm/vim-browser-reload-linux'
 Bundle 'dgryski/vim-godef'
 Bundle 'thinca/vim-visualstar'
 Bundle 'kien/ctrlp.vim'
+Bundle 'vim-scripts/DoxygenToolkit.vim'
 
 "" Go
 au BufRead,BufNewFile *.go set filetype=go 
@@ -204,7 +205,7 @@ map <space> /
 map <C-space> ?
 
 "" make shortcuts for common make labels I use
-map <C-b>		:make<CR>
+map <C-b>		:make -j 4<CR>
 map <Leader>mm  :w<CR>:make<CR>
 map <Leader>mr  :w<CR>:make rebuild<CR>
 map <Leader>mc  :w<CR>:make clean<CR>
