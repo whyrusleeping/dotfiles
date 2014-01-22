@@ -244,7 +244,8 @@ set scrolloff=4
 "" color schemes
 syntax enable
 
-colorscheme ir_black
+"" colorscheme ir_black
+colorscheme badwolf
 
 "" set font
 set gfn=Source\ Code\ Pro\ for\ Powerline\ 12
