@@ -231,6 +231,7 @@ nnoremap <F12>o :exe ':silent !opera %'<CR>
 
 let b:delimitMate_expand_cr=1
 
+let g:syntastic_cpp_compiler_options = ' std=c++11'
 """""""""""""""""""""""""""""""""
 "
 " > Colors And Fonts
