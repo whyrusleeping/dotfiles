@@ -1,3 +1,4 @@
+#!/bin/bash
 ln ~/code/dotfiles/.vimrc ~/.vimrc
 ln -s ~/code/dotfiles/.vim ~/.vim
 ln -s ~/code/dotfiles/.fonts ~/.fonts

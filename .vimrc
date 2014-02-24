@@ -44,6 +44,7 @@ au BufRead,BufNewFile *.go set filetype=go
 "
 """""""""""""""""""""""""
 
+""Quick Fix Menu
 command -bang -nargs=? QFix call QFixToggle(<bang>0) 
 function! QFixToggle(forced) 
 	if exists("g:qfix_win") && a:forced == 0 
@@ -88,33 +89,17 @@ set smartindent
 map <C-F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 set tags+=./
 
-let g:tagbar_type_go = {
-			\ 'ctagstype' : 'go',
-			\ 'kinds'     : [
-			\ 'p:package',
-			\ 'i:imports:1',
-			\ 'c:constants',
-			\ 'v:variables',
-			\ 't:types',
-			\ 'n:interfaces',
-			\ 'w:fields',
-			\ 'e:embedded',
-			\ 'm:methods',
-			\ 'r:constructor',
-			\ 'f:functions'
-			\ ],
-			\ 'sro' : '.',
-			\ 'kind2scope' : {
-			\ 't' : 'ctype',
-			\ 'n' : 'ntype'
-			\ },
-			\ 'scope2kind' : {
-			\ 'ctype' : 't',
-			\ 'ntype' : 'n'
-			\ },
-			\ 'ctagsbin'  : 'gotags',
-			\ 'ctagsargs' : '-sort -silent'
-			\ }
+"" Gotags definitions
+let g:tagbar_type_go = 
+	\{ 'ctagstype' : 'go',
+	\ 'kinds'     : [ 'p:package', 'i:imports:1',
+	\ 'c:constants', 'v:variables', 't:types',
+	\ 'n:interfaces', 'w:fields', 'e:embedded',
+	\ 'm:methods', 'r:constructor', 'f:functions' ],
+	\ 'sro' : '.', 'kind2scope' : { 't' : 'ctype',
+	\ 'n' : 'ntype' }, 'scope2kind' : {
+	\ 'ctype' : 't', 'ntype' : 'n' },
+	\ 'ctagsbin'  : 'gotags', 'ctagsargs' : '-sort -silent'}
 
 "" set line numbers
 set nu
@@ -124,9 +109,10 @@ set cursorline
 let g:ycm_min_num_of_chars_for_completion=1
 
 "" Supertab config
-let g:SuperTabClosePreviewOnPopupClose=1
+"" let g:SuperTabClosePreviewOnPopupClose=1
 
 "" Filetype Plugins
+"" TODO: move this to an autoload plugin folder
 augroup golang
 	"" Autocorrect go declaration operator
 	autocmd FileType go iab :+ :=
@@ -202,7 +188,6 @@ map <Leader>kf gg=G``
 
 "" map the spacebar to search
 map <space> /
-map <C-space> ?
 
 "" make shortcuts for common make labels I use
 map <C-b>		:make -j 4<CR>
@@ -225,9 +210,8 @@ nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 "" Open remote file
 map <Leader>er :e scp://
 
-nnoremap <F12>c :exe ':silent !google-chrome %'<CR>
-nnoremap <F12>o :exe ':silent !opera %'<CR>
-
+""nnoremap <F12>c :exe ':silent !google-chrome %'<CR>
+""nnoremap <F12>o :exe ':silent !opera %'<CR>
 
 let b:delimitMate_expand_cr=1
 
