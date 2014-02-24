@@ -15,7 +15,7 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
-Bundle 'scrooloose/syntastic'
+""Bundle 'scrooloose/syntastic'
 Bundle 'majutsushi/tagbar'
 Bundle 'tpope/vim-fugitive'
 ""Bundle 'Valloric/YouCompleteMe'

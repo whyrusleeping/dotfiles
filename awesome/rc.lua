@@ -12,7 +12,6 @@ local naughty = require("naughty")
 local menubar = require("menubar")
 
 local vicious = require("vicious")
-local batwidget = require("batmon/widget")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -226,7 +225,6 @@ for s = 1, screen.count() do
   if s == 1 then right_layout:add(wibox.widget.systray()) end
   right_layout:add(cpuwidget)
   right_layout:add(memwidget)
-  right_layout:add(batwidget)
   right_layout:add(mytextclock)
   right_layout:add(mylayoutbox[s])
 
@@ -472,3 +470,5 @@ end)
 --client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
+awful.util.spawn_with_shell("xmodmap ~/.xmodmaprc")
+awful.util.spawn_with_shell("synapse -s")

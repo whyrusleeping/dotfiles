@@ -7,6 +7,7 @@
 	ls = status
 	rf = checkout --
 	au = add -u
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
 [core]
 	editor = vim
 	whitespace = trailing-space, space-before-tab
@@ -18,3 +19,6 @@
 	default = matching
 [apply]
 	whitespace = fix
+[url "https://chromium.googlesource.com/a/"]
+	insteadOf = https://chromium.googlesource.com/
+	insteadOf = https://chromium.googlesource.com/a/

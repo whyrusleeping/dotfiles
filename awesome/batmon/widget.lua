@@ -1,6 +1,6 @@
 local wibox = require("wibox")
 
-local batwidget = wibox.widget.textbox()
+local batwidget = widget({ type = "textbox" })
 
 function readnumber(path)
 	local f = io.open(path,"r")
@@ -18,7 +18,7 @@ function batwidget.updateDisplay()
 		timestr = string.format(timeleft .. "mins")
 	end
 
-	batwidget:set_text("Batt: " .. string.format("%.2f",(100 * percent)) .. "% " .. timestr)
+	batwidget.text = "Batt: " .. string.format("%.2f",(100 * percent)) .. "% " .. timestr
 end
 
 battimer = timer({timeout = 10})
