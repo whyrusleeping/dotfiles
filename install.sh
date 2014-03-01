@@ -7,6 +7,9 @@ ln ~/code/dotfiles/.gitconfig ~/.gitconfig
 ln ~/code/dotfiles/.Xdefaults ~/.Xdefaults
 ln ~/code/dotfiles/config.fish ~/.config/fish/config.fish
 
+#urxvt clipboard scripts
+sudo cp clipboard /usr/lib/urxvt/perl/
+
 #initialize vundle
 git submodule init
 git submodule update
