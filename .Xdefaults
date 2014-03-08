@@ -28,12 +28,12 @@ urxvt*font:        xft:source code pro for powerline:medium:size=11
 !  - cursor
 urxvt*cursorColor: #DCDCCC
 !  - pseudo transparency
-urxvt*shading:    30
-urxvt*transparent:true
+!urxvt*shading:    30
+!urxvt*transparent:true
 !
 !  - color scheme
-!urxvt*depth: 32
-!urxvt*background: rgba:0000/0000/0200/4800
+urxvt*depth: 32
+urxvt*background: rgba:0000/0000/0200/9000
 !urxvt.foreground:  #EBEBFF
 !! black + red
 !urxvt*color0:     #3f3f3f
