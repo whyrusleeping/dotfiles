@@ -199,6 +199,9 @@ map <Leader>md  :w<CR>:make debug<CR>
 ""Git shortcuts for vim fugitive
 map <Leader>gs :Gstatus<CR>
 
+""centerpunct
+inoremap <Leader>. ·
+
 "" I freaking love my quick fix list, but sometimes the commands are obnoxious
 map <Leader>c :QFix<CR>
 map <Leader>xc :cn<CR>
