@@ -102,7 +102,7 @@ let g:tagbar_type_go =
 	\ 'ctagsbin'  : 'gotags', 'ctagsargs' : '-sort -silent'}
 
 "" set line numbers
-set nu
+set relativenumber
 set cursorline
 
 "" Ycm Config
