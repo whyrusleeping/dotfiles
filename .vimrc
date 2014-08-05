@@ -10,30 +10,30 @@ set backspace=2
 set mouse=a ""allow mouse usage (gets annoying sometimes..)
 
 ""Vundle
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
 
-""Bundle 'scrooloose/syntastic'
-Bundle 'majutsushi/tagbar'
-Bundle 'tpope/vim-fugitive'
-""Bundle 'Valloric/YouCompleteMe'
-Bundle 'scrooloose/nerdtree'
-""Bundle 'troydm/easytree.vim'
-Bundle 'ervandew/supertab'
-Bundle 'lukaszb/vim-web-indent'
-Bundle 'jnwhiteh/vim-golang'
-""Bundle 'Raimondi/delimitMate'
-""Bundle 'KevinGoodsell/vim-csexact'
-""Bundle 'airblade/vim-gitgutter'
-Bundle 'Rip-Rip/clang_complete'
-""Bundle 'Lokaltog/powerline',{'rtp': 'powerline/bindings/vim'}
-Bundle 'lordm/vim-browser-reload-linux'
-Bundle 'dgryski/vim-godef'
-Bundle 'thinca/vim-visualstar'
-Bundle 'kien/ctrlp.vim'
-Bundle 'vim-scripts/DoxygenToolkit.vim'
+""Plugin 'scrooloose/syntastic'
+Plugin 'majutsushi/tagbar'
+Plugin 'tpope/vim-fugitive'
+""Plugin 'Valloric/YouCompleteMe'
+Plugin 'scrooloose/nerdtree'
+""Plugin 'troydm/easytree.vim'
+Plugin 'ervandew/supertab'
+Plugin 'lukaszb/vim-web-indent'
+Plugin 'jnwhiteh/vim-golang'
+""Plugin 'Raimondi/delimitMate'
+""Plugin 'KevinGoodsell/vim-csexact'
+""Plugin 'airblade/vim-gitgutter'
+Plugin 'Rip-Rip/clang_complete'
+""Plugin 'Lokaltog/powerline',{'rtp': 'powerline/bindings/vim'}
+Plugin 'lordm/vim-browser-reload-linux'
+Plugin 'dgryski/vim-godef'
+Plugin 'thinca/vim-visualstar'
+Plugin 'kien/ctrlp.vim'
+Plugin 'vim-scripts/DoxygenToolkit.vim'
 
 "" Go
 au BufRead,BufNewFile *.go set filetype=go 
