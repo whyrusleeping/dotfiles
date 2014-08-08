@@ -23,17 +23,20 @@ Plugin 'scrooloose/nerdtree'
 ""Plugin 'troydm/easytree.vim'
 Plugin 'ervandew/supertab'
 Plugin 'lukaszb/vim-web-indent'
-Plugin 'jnwhiteh/vim-golang'
+""Plugin 'jnwhiteh/vim-golang'
 ""Plugin 'Raimondi/delimitMate'
 ""Plugin 'KevinGoodsell/vim-csexact'
 ""Plugin 'airblade/vim-gitgutter'
 Plugin 'Rip-Rip/clang_complete'
 ""Plugin 'Lokaltog/powerline',{'rtp': 'powerline/bindings/vim'}
 Plugin 'lordm/vim-browser-reload-linux'
-Plugin 'dgryski/vim-godef'
 Plugin 'thinca/vim-visualstar'
 Plugin 'kien/ctrlp.vim'
 Plugin 'vim-scripts/DoxygenToolkit.vim'
+Plugin 'fatih/vim-go'
+
+call vundle#end()
+filetype plugin indent on
 
 "" Go
 au BufRead,BufNewFile *.go set filetype=go 
@@ -113,11 +116,12 @@ let g:ycm_min_num_of_chars_for_completion=1
 
 "" Filetype Plugins
 "" TODO: move this to an autoload plugin folder
-augroup golang
+augroup go
 	"" Autocorrect go declaration operator
 	autocmd FileType go iab :+ :=
 	autocmd FileType go set omnifunc=gocomplete#Complete
 	autocmd FileType go let g:SuperTabDefaultCompletionType="<c-x><c-o>"
+	autocmd BufWritePre *.go GoFmt
 	if has("autocmd") && exists("+omnifunc")
 		filetype plugin indent on
 		autocmd Filetype *
@@ -219,6 +223,7 @@ map <Leader>er :e scp://
 let b:delimitMate_expand_cr=1
 
 let g:syntastic_cpp_compiler_options = ' std=c++11'
+let g:SuperTabDefaultCompletionType = "context"
 """""""""""""""""""""""""""""""""
 "
 " > Colors And Fonts
@@ -236,7 +241,7 @@ syntax enable
 colorscheme badwolf
 
 "" set font
-set gfn=Source\ Code\ Pro\ for\ Powerline\ 12
+set gfn=Source\ Code\ Pro\ for\ Powerline\ 13
 
 "" Dont show compiled files in source tree
 set wildignore=*.o,*.pdf
