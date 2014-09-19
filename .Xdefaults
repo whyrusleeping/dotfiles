@@ -1,106 +1,66 @@
-! General
-urxvt*termName:  rxvt-256color
-urxvt*loginShell:         true
-urxvt*scrollBar:         false
-urxvt*secondaryScroll:    true
-urxvt*saveLines:         65535
-urxvt*cursorBlink:       false
-urxvt*urgentOnBell:       true
-urxvt*override-redirect:false
-urxvt*borderLess:       false
-urxvt*internalBorder:       0
-urxvt*externalBorder:       0
-           
-! Extensions
-urxvt*perl-lib:        /usr/lib/urxvt/perl/
-urxvt*perl-ext-common: default,matcher,searchable-scrollback
-urxvt*urlLauncher:     /usr/bin/chromium
-urxvt*matcher.button:  1
-!  - catch ugly URLs
-urxvt.cutchars:        `()'*<>[]{|}"
- 
-! Appearance
-!  - use a bitmap font
+Xcursor.theme:    Vanilla-DMZ-AA
+
+!urxvt color scheme:
+
+URxvt*background: #2B2B2B
+URxvt*foreground: #DEDEDE
+
+URxvt*colorUL: #86a2b0
+
+! black
+URxvt*color0  : #2E3436
+URxvt*color8  : #555753
+! red
+URxvt*color1  : #CC0000
+URxvt*color9  : #EF2929
+! green
+URxvt*color2  : #4E9A06
+URxvt*color10 : #8AE234
+! yellow
+URxvt*color3  : #C4A000
+URxvt*color11 : #FCE94F
+! blue
+URxvt*color4  : #3465A4
+URxvt*color12 : #729FCF
+! magenta
+URxvt*color5  : #75507B
+URxvt*color13 : #AD7FA8
+! cyan
+URxvt*color6  : #06989A
+URxvt*color14 : #34E2E2
+! white
+URxvt*color7  : #D3D7CF
+URxvt*color15 : #EEEEEC
+
+!urxvt fonts: 
 urxvt*font:        xft:source code pro for powerline:medium:size=11
 urxvt*font:        xft:source code pro for powerline:medium:size=11
-!  - use xft for drawing fonts
-!urxvt*font:       xft:Terminus:8
-!  - cursor
-urxvt*cursorColor: #DCDCCC
-!  - pseudo transparency
-!urxvt*shading:    30
-!urxvt*transparent:true
-!
-!  - color scheme
-urxvt*depth: 32
-urxvt*background: rgba:0000/0000/0200/9000
-!urxvt.foreground:  #EBEBFF
-!! black + red
-!urxvt*color0:     #3f3f3f
-!urxvt*color0:      #000000
-!urxvt*color1:      #e01010
-!! green + yellow
-!urxvt*color2:      #00AA00
-!urxvt*color3:      #FFFF00
-!! blue + purple
-!urxvt*color4:      #112037
-!urxvt*color5:      #A020F0
-!! cyan + white
-!urxvt*color6:      #5B5BC7
-!urxvt*color7:      #fefefe
-!! bright-black + bright-red
-!urxvt*color8:      #6a6a6a
-!urxvt*color9:      #FF5555
-!! bright-green + bright-yellow
-!urxvt*color10:     #90EE90
-!urxvt*color11:     #ffff2f
-!! bright-blue + bright-purple
-!urxvt*color12:     #5B5BC7
-!urxvt*color13:     #e628ba
-!! bright-cyan + bright-white
-!urxvt*color14:     #7D7DFB
-!urxvt*color15:     #ffffff
 
-*background: #002027
-*foreground: #7f929c
-!!*fading: 40
-*fadeColor: #002b36
-*cursorColor: #93a1a1
-*pointerColorBackground: #586e75
-*pointerColorForeground: #93a1a1
+!urxvt extensions:
 
-!! black dark/light
-*color0: #073642
-*color8: #002b36
-
-!! red dark/light
-*color1: #dc322f
-*color9: #cb4b16
-
-!! green dark/light
-*color2: #859900
-*color10: #586e75
-
-!! yellow dark/light
-*color3: #b58900
-*color11: #657b83
-
-!! blue dark/light
-*color4: #268bd2
-*color12: #839496
-
-!! magenta dark/light
-*color5: #d33682
-*color13: #6c71c4
-
-!! cyan dark/light
-*color6: #2aa198
-*color14: #93a1a1
-
-!! white dark/light
-*color7: #eee8d5
-*color15: #fdf6e3
-
+URxvt.perl-ext-common:  default,matcher,clipboard
 urxvt.keysym.Shift-Control-V: perl:clipboard:paste
 urxvt.iso14755: False
-urxvt.perl-ext-common: default,clipboard
+
+!enabling clickable links:
+
+URxvt.urlLauncher:      /usr/bin/chromium
+URxvt.matcher.button:   1 
+
+!urxvt scrolling options and cursor style:
+
+URxvt*saveLines: 12000
+URxvt*scrollstyle:plain
+URxvt*scrollBar: false
+URxvt*cursorBlink: true
+URxvt*cursorUnderline: true
+
+! urxvt tabs settings:
+
+URxvt.tabbed.tabbar-fg: 2
+URxvt.tabbed.tabbar-bg: 0
+URxvt.tabbed.tab-fg: 2
+URxvt.tabbed.tab-bg: 8
+URxvt.tabbed.autohide:  yes
+URxvt.tabbed.new-button:  no
+URxvt.tabbed.title: no

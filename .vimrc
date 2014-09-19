@@ -1,4 +1,4 @@
-"""""""""""""""""""""""""
+""""""""""""""""""""""""
 " Author: Jeromy Johnson
 "
 """""""""""""""""""""""""
@@ -107,6 +107,7 @@ let g:tagbar_type_go =
 "" set line numbers
 set relativenumber
 set cursorline
+set nu
 
 "" Ycm Config
 let g:ycm_min_num_of_chars_for_completion=1
