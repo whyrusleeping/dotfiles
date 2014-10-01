@@ -8,3 +8,4 @@ ln ~/code/dotfiles/.Xdefaults ~/.Xdefaults
 ln ~/code/dotfiles/config.fish ~/.config/fish/config.fish
 
 #urxvt clipboard scripts
+sudo cp chromebook/clipboard /usr/lib/urxvt/perl/
