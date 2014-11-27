@@ -242,7 +242,7 @@ syntax enable
 colorscheme badwolf
 
 "" set font
-set gfn=Source\ Code\ Pro\ for\ Powerline\ 13
+set gfn=Source\ Code\ Pro\ 13
 
 "" Dont show compiled files in source tree
 set wildignore=*.o,*.pdf
