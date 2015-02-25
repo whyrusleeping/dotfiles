@@ -33,8 +33,7 @@ URxvt*color7  : #D3D7CF
 URxvt*color15 : #EEEEEC
 
 !urxvt fonts: 
-urxvt*font:        xft:source code pro for powerline:medium:size=11
-urxvt*font:        xft:source code pro for powerline:medium:size=11
+urxvt*font:        xft:source code pro:medium:size=14
 
 !urxvt extensions:
 
@@ -44,7 +43,7 @@ urxvt.iso14755: False
 
 !enabling clickable links:
 
-URxvt.urlLauncher:      /usr/bin/chromium
+URxvt.url-launcher:      /usr/bin/chromium
 URxvt.matcher.button:   1 
 
 !urxvt scrolling options and cursor style:
