@@ -33,7 +33,7 @@ URxvt*color7  : #D3D7CF
 URxvt*color15 : #EEEEEC
 
 !urxvt fonts: 
-urxvt*font:        xft:source code pro:medium:size=14
+urxvt*font:        xft:source code pro:medium:size=15
 
 !urxvt extensions:
 
@@ -50,6 +50,7 @@ URxvt.matcher.button:   1
 
 URxvt*saveLines: 12000
 URxvt*scrollstyle:plain
+URxvt*jumpScroll: false
 URxvt*scrollBar: false
 URxvt*cursorBlink: true
 URxvt*cursorUnderline: true
@@ -63,3 +64,19 @@ URxvt.tabbed.tab-bg: 8
 URxvt.tabbed.autohide:  yes
 URxvt.tabbed.new-button:  no
 URxvt.tabbed.title: no
+
+! rofi configuration
+rofi.background: #333
+rofi.foreground: #1aa
+rofi.highlightbg: #1aa
+rofi.highlightfg: #111
+rofi.bordercolor: #277
+rofi.font: times 10
+rofi.padding: 3
+rofi.lines: 5
+rofi.borderwidth: 3
+
+Xft.antialias:  true
+Xft.rgba:       rgb
+Xft.hinting:    true
+Xft.hintstyle:  hintfull

@@ -23,6 +23,7 @@ Plugin 'scrooloose/nerdtree'
 ""Plugin 'troydm/easytree.vim'
 Plugin 'ervandew/supertab'
 Plugin 'lukaszb/vim-web-indent'
+Plugin 'suan/vim-instant-markdown'
 ""Plugin 'jnwhiteh/vim-golang'
 ""Plugin 'Raimondi/delimitMate'
 ""Plugin 'KevinGoodsell/vim-csexact'
@@ -225,6 +226,7 @@ let b:delimitMate_expand_cr=1
 
 let g:syntastic_cpp_compiler_options = ' std=c++11'
 let g:SuperTabDefaultCompletionType = "context"
+let g:instant_markdown_autostart = 0
 """""""""""""""""""""""""""""""""
 "
 " > Colors And Fonts
@@ -238,11 +240,12 @@ set scrolloff=4
 "" color schemes
 syntax enable
 
+set t_Co=256
 "" colorscheme ir_black
 colorscheme badwolf
 
 "" set font
-set gfn=Source\ Code\ Pro\ 13
+set gfn=Source\ Code\ Pro\ 15
 
 "" Dont show compiled files in source tree
 set wildignore=*.o,*.pdf
