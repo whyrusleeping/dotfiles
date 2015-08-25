@@ -1,0 +1,22 @@
+# xbacklight and kbdlight (AUR) needed
+
+"pactl set-sink-volume 1 +2%"
+XF86AudioRaiseVolume
+
+"pactl set-sink-volume 1 -2%"
+XF86AudioLowerVolume
+
+"pactl set-sink-mute 1 toggle"
+XF86AudioMute
+
+"xbacklight -dec 10 -time 300"
+XF86MonBrightnessDown
+
+"xbacklight -inc 10 -time 300"
+XF86MonBrightnessUp
+
+"kbdlight up"
+XF86KbdBrightnessUp
+
+"kbdlight down"
+XF86KbdBrightnessDown
