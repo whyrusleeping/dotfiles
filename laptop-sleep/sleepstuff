@@ -1,0 +1,6 @@
+#!/bin/bash
+export SSH_AGENT_PID=`cat /home/whyrusleeping/.ssh_agent_pid`
+export SSH_AUTH_SOCK=`cat /home/whyrusleeping/.ssh_auth_sock`
+ssh-add -D
+/usr/bin/disable-wakeup XHC1
+/usr/bin/i3lock -i /home/whyrusleeping/pics/arch.png
