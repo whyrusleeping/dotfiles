@@ -131,6 +131,7 @@ augroup go
 					\   setlocal omnifunc=syntaxcomplete#Complete |
 					\ endif
 	endif
+	noremap <C-]> :GoDef<CR>
 augroup END
 
 
