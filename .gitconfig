@@ -1,6 +1,7 @@
 [user]
 	name = Jeromy
 	email = jeromyj@gmail.com
+	signingkey = 72DC2B6B
 [alias]
 	co = checkout
 	ci = commit
@@ -8,6 +9,7 @@
 	rf = checkout --
 	au = add -u
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+	branches = for-each-ref --sort=-committerdate refs/heads/
 [core]
 	editor = vim
 	whitespace = trailing-space, space-before-tab
