@@ -1,0 +1,4 @@
+title Arch Linux Zen
+linux /vmlinuz-linux-zen
+initrd /initramfs-linux-zen.img
+options cryptdevice=UUID=81bf7ac8-aa85-4341-91d8-da43d9acf229:rumilcrypt root=/dev/mapper/rumilcrypt rw button.lid_init_state=open
