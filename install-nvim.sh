@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 mkdir -p ~/.config/nvim/
 cp neovim/init.vim ~/.config/nvim/init.vim
