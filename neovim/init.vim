@@ -121,7 +121,7 @@ let g:ycm_min_num_of_chars_for_completion=1
 augroup go
 	"" Autocorrect go declaration operator
 	autocmd FileType go iab :+ :=
-	autocmd FileType go set omnifunc=gocomplete#Complete
+	autocmd FileType go set omnifunc=go#complete#Complete
 	autocmd FileType go let g:SuperTabDefaultCompletionType="<c-x><c-o>"
 	autocmd BufWritePre *.go GoFmt
 	if has("autocmd") && exists("+omnifunc")
