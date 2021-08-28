@@ -1,262 +1,177 @@
-""""""""""""""""""""""""
-" Author: Jeromy Johnson
-"
-"""""""""""""""""""""""""
-
-""Misc
 set nocompatible
 filetype off
-set backspace=2
-set mouse=a ""allow mouse usage (gets annoying sometimes..)
-
-""Vundle
 set rtp+=~/.config/nvim/bundle/Vundle.vim
-call vundle#begin('~/.config/nvim/bundle')
 
-Plugin 'gmarik/Vundle.vim'
+call vundle#begin()
 
-""Plugin 'scrooloose/syntastic'
-Plugin 'majutsushi/tagbar'
-Plugin 'tpope/vim-fugitive'
-""Plugin 'Valloric/YouCompleteMe'
-Plugin 'scrooloose/nerdtree'
-""Plugin 'troydm/easytree.vim'
-Plugin 'ervandew/supertab'
-Plugin 'lukaszb/vim-web-indent'
-Plugin 'suan/vim-instant-markdown'
-""Plugin 'jnwhiteh/vim-golang'
-""Plugin 'Raimondi/delimitMate'
-""Plugin 'KevinGoodsell/vim-csexact'
-""Plugin 'airblade/vim-gitgutter'
-Plugin 'Rip-Rip/clang_complete'
-""Plugin 'Lokaltog/powerline',{'rtp': 'powerline/bindings/vim'}
-Plugin 'lordm/vim-browser-reload-linux'
-Plugin 'thinca/vim-visualstar'
-Plugin 'kien/ctrlp.vim'
-Plugin 'vim-scripts/DoxygenToolkit.vim'
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'fatih/vim-go'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'majutsushi/tagbar'
+Plugin 'ervandew/supertab'
+Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plugin 'SirVer/ultisnips'
+
+Plugin 'honza/vim-snippets'
+Plugin 'Shougo/neopairs.vim'
+
+"Plugin 'stamblerre/gocode', {'rtp': 'vim/'}
 
 call vundle#end()
-filetype plugin indent on
 
+let g:neopairs#enable = 1
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_smart_case = 1
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
+
+filetype on
+syntax on
+syntax enable
+colorscheme badwolf
+hi Comment cterm=italic
+set background=dark
+highlight LineNr ctermfg=grey
+hi MatchParen ctermfg=white
+hi MatchParen ctermbg=black
+
+"let g:go_def_mode='godef'
+
+let mapleader = ","
+
+call deoplete#custom#source('_', 'converters', ['converter_auto_paren'])
+
+call deoplete#custom#var('omni', 'input_patterns', {
+   		\        'go': '[^. *\t]\.\w*',
+   		\})
+
+"let g:SuperTabDefaultCompletionType = "<c-n>"
 "" Go
-au BufRead,BufNewFile *.go set filetype=go 
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 
-"""""""""""""""""""""""""
-"
-" > Functions
-"
-"""""""""""""""""""""""""
+let g:go_snippet_engine = "ultisnips"
+let g:go_highlight_operators = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_interfaces = 1
 
-""Quick Fix Menu
-command -bang -nargs=? QFix call QFixToggle(<bang>0) 
-function! QFixToggle(forced) 
-	if exists("g:qfix_win") && a:forced == 0 
-		cclose 
-		unlet g:qfix_win 
-	else 
-		botright cope
-		let g:qfix_win = bufnr("$") 
-	endif 
-endfunction
+let g:go_auto_type_info = 0
 
-"""""""""""""""""""""""""
-"
-" > Search Options
-"
-"""""""""""""""""""""""""
+let g:go_fmt_fail_silently = 1
+let g:go_fmt_command = "goimports"
+let g:go_info_mode = "gopls"
+let g:go_def_mode = "gopls"
 
-" Be smart about case
-set smartcase
-
-"  Highlight Search Results
-set hlsearch
-
-
-"" Formatting
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-
-set autoindent
-set smartindent
-
-
-
-"""""""""""""""""""""""""
-"
-" > Tags
-"
-"""""""""""""""""""""""""
-
-"" autogenerate c-tags for the given directory
-map <C-F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
-set tags+=./
-
-"" Gotags definitions
-let g:tagbar_type_go = 
-	\{ 'ctagstype' : 'go',
-	\ 'kinds'     : [ 'p:package', 'i:imports:1',
-	\ 'c:constants', 'v:variables', 't:types',
-	\ 'n:interfaces', 'w:fields', 'e:embedded',
-	\ 'm:methods', 'r:constructor', 'f:functions' ],
-	\ 'sro' : '.', 'kind2scope' : { 't' : 'ctype',
-	\ 'n' : 'ntype' }, 'scope2kind' : {
-	\ 'ctype' : 't', 'ntype' : 'n' },
-	\ 'ctagsbin'  : 'gotags', 'ctagsargs' : '-sort -silent'}
-
-"" set line numbers
-set relativenumber
-set cursorline
-set nu
-
-"" Ycm Config
-let g:ycm_min_num_of_chars_for_completion=1
-
-"" Supertab config
-"" let g:SuperTabClosePreviewOnPopupClose=1
-
-"" Filetype Plugins
-"" TODO: move this to an autoload plugin folder
-augroup go
-	"" Autocorrect go declaration operator
-	autocmd FileType go iab :+ :=
-	autocmd FileType go set omnifunc=go#complete#Complete
-	autocmd FileType go let g:SuperTabDefaultCompletionType="<c-x><c-o>"
-	autocmd BufWritePre *.go GoFmt
-	if has("autocmd") && exists("+omnifunc")
-		filetype plugin indent on
-		autocmd Filetype *
-					\ if &omnifunc == "" |
-					\   setlocal omnifunc=syntaxcomplete#Complete |
-					\ endif
-	endif
-	noremap <C-]> :GoDef<CR>
-augroup END
-
+map <C-n>		:GoTest<CR>
+noremap <C-i> :GoInstall<CR>
+noremap <C-]> :GoDef<CR>
+map <Leader>f :GoFillStruct<CR>
+map <Leader>e oif err != nil {<CR>
 
 ""improve autocomplete menu color
 highlight Pmenu ctermbg=238 gui=bold
 
-"" autocorrections for common typos
-command W w
-command Q q
-command WQ wq
-command Wq wq
-
-"" Save and restore user defined folds
-au BufWinLeave * silent! mkview
-au BufWinEnter * silent! loadview
-
-
-"""""""""""""""""""""""""""""""""
-"
-" > Key Mappings
-"
-"""""""""""""""""""""""""""""""""
-
-"" Hard Mode
-noremap <Up> <NOP>
-noremap <Down> <NOP>
-noremap <Left> <NOP>
-noremap <Right> <NOP>
-inoremap <Up> <NOP>
-inoremap <Down> <NOP>
-inoremap <Left> <NOP>
-inoremap <Right> <NOP>
-
-inoremap <ESC> <NOP>
-inoremap jk <ESC>
-
-
-""My favorite key mappings
-imap <C-s> <ESC>:w<CR>i
-inoremap <c-o> <CR>}<ESC>O
-nnoremap ; :
-let mapleader = ","
-map <Leader>w <C-w>w
-map <Leader>q :wq<CR>
-map <Leader>n :nohl<CR>
-map <Leader>tt :TagbarToggle<CR>
-map <Leader>tr :NERDTreeToggle<CR>
-map <Leader>tg :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
-map <Leader>p :CtrlPTag<CR>
-map <Leader>qa :qall<CR>
-map <Leader>a  :tabn<CR>
-map \ $
-map <Leader>\ ^
-
-""open vimrc for editing
-nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
-nnoremap <Leader>sv :source $MYVIMRC<CR>
-
-"" Autoindent entire file
-map <Leader>kf gg=G``
-
-"" map the spacebar to search
-map <space> /
-
-"" make shortcuts for common make labels I use
-map <C-b>		:make -j 4<CR>
-map <C-n>		:GoTest<CR>
-map <C-i>		:GoInstall<CR>
-map <Leader>mm  :w<CR>:make<CR>
-map <Leader>mr  :w<CR>:make rebuild<CR>
-map <Leader>mc  :w<CR>:make clean<CR>
-map <Leader>md  :w<CR>:make debug<CR>
-
-""Git shortcuts for vim fugitive
-map <Leader>gs :Gstatus<CR>
-
-""centerpunct
-inoremap <Leader>. ·
-
-"" I freaking love my quick fix list, but sometimes the commands are obnoxious
-map <Leader>c :QFix<CR>
-map <Leader>xc :cn<CR>
-map <Leader>vc :cp<CR>
-
-"" Replace word under cursor (so nice...)
-nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
-
-"" Open remote file
-map <Leader>er :e scp://
-
-""nnoremap <F12>c :exe ':silent !google-chrome %'<CR>
-""nnoremap <F12>o :exe ':silent !opera %'<CR>
-
-let b:delimitMate_expand_cr=1
-
-let g:syntastic_cpp_compiler_options = ' std=c++11'
-let g:SuperTabDefaultCompletionType = "context"
-let g:instant_markdown_autostart = 0
-"""""""""""""""""""""""""""""""""
-"
-" > Colors And Fonts
-"
-"""""""""""""""""""""""""""""""""
-
-set guioptions=aegit
-""set guifont='Source Code Pro for Powerline 13'
-
-set scrolloff=4
-"" color schemes
-syntax enable
-
-set t_Co=256
-"" colorscheme ir_black
-colorscheme badwolf
+"" dont redraw screen while running macros (increases speed)
+set lazyredraw
 
 "" set font
 set gfn=Source\ Code\ Pro\ 15
 
-"" Dont show compiled files in source tree
-set wildignore=*.o,*.pdf
+set guioptions=aegit
 
-set encoding=utf-8
 
-"" dont redraw screen while running macros (increases speed)
-set lazyredraw
+set clipboard=unnamedplus
+set mouse=r
+set hlsearch
+set autoindent
+set smartindent
+set smartcase
+set relativenumber
+set cursorline
+set nu
+set incsearch
+set colorcolumn=80
 
-autocmd Filetype *.html syn sync fromstart
-set shell=bash
+set undofile
+set undodir=$HOME/.nvim/undo
+set undolevels=1000
+set undoreload=1000
+set scrolloff=5
+
+"set list
+"set listchars=
+"set listchars+=tab:→\ 
+"set listchars+=trail:·
+"set listchars+=extends:»              " show cut off when nowrap
+"set listchars+=precedes:«
+"set listchars+=nbsp:⣿
+
+set shiftwidth=2 tabstop=2 softtabstop=2 expandtab
+au FileType yaml setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
+autocmd FileType go setlocal shiftwidth=4 tabstop=4 softtabstop=4 noexpandtab
+
+
+command! W w
+command! Q q
+command! Wq wq
+nnoremap ; :
+
+inoremap jk <ESC>
+
+" so your not lazy
+" noremap <Up> <NOP>
+" noremap <Down> <NOP>
+" noremap <Left> <NOP>
+" noremap <Right> <NOP>
+" inoremap <Up> <NOP>
+" inoremap <Down> <NOP>
+" inoremap <Left> <NOP>
+" inoremap <Right> <NOP>
+
+" i3 like movement
+nnoremap <C-H> <C-W><C-H>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+
+
+map <Leader>t :TagbarToggle<CR>
+map <Leader>p :CtrlP<CR>
+map <Leader>w <C-w>w
+map <Leader>q :wq<CR>
+map <Leader>n :nohl<CR>
+"
+"" Configure Airline
+let g:airline_powerline_fonts=1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+nmap <leader>1 <Plug>AirlineSelectTab1
+nmap <leader>2 <Plug>AirlineSelectTab2
+nmap <leader>3 <Plug>AirlineSelectTab3
+nmap <leader>4 <Plug>AirlineSelectTab4
+nmap <leader>5 <Plug>AirlineSelectTab5
+nmap <leader>6 <Plug>AirlineSelectTab6
+nmap <leader>7 <Plug>AirlineSelectTab7
+nmap <leader>8 <Plug>AirlineSelectTab8
+nmap <leader>9 <Plug>AirlineSelectTab9
+nmap <Tab> <Plug>AirlineSelectNextTab
+nmap <S-Tab> <Plug>AirlineSelectPrevTab
+
+" vim go colors
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_array_whitespace_error = 1
+
+
+set dictionary+=/usr/share/dict/words
