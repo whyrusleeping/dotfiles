@@ -23,7 +23,7 @@ call vundle#end()
 
 let g:neopairs#enable = 1
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_smart_case = 1
+"let g:deoplete#enable_smart_case = 1
 
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
